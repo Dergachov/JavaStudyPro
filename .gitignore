@@ -1,7 +1,3 @@
-# Created by .ignore support plugin (hsz.mobi)
 .idea
 target
 *.iml
-.gitignore
-src/main/resources/
-src/test/
