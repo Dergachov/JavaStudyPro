@@ -2,3 +2,6 @@
 .idea
 target
 *.iml
+.gitignore
+src/main/resources/
+src/test/
