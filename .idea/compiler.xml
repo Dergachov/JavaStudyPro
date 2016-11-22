@@ -26,7 +26,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="JavaStudyPro" target="1.5" />
+      <module name="JavaStudyPro" target="1.7" />
+      <module name="sergey" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
