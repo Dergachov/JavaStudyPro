@@ -1,12 +1,12 @@
 Read:
 1. Boxing/Unboxing
 
-Write:
-1. Add maven module
-2. Stack + docs
-    - push
-    - pop
-    - iterator
+Create a Stack data structure which:
+- should be generic
+- contain `push()` and `pop()` methods for adding and get elements according to the LIFO principle
+- implements `Iterable<T>` interface
+- contain an inner class as implementation of `Iterator<T>` interface
+- covered with documentation
 
 Refs:
-    http://www.karambelkar.info/2012/06/java-1.7-collections---uml-class-diagrams/
+http://www.karambelkar.info/2012/06/java-1.7-collections---uml-class-diagrams/
