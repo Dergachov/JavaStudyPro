@@ -1,5 +1,7 @@
 package hw01.collections.stack;
 
+import java.util.Iterator;
+
 /**
  * Created by Serezha on 2016-11-22.
  */
@@ -16,5 +18,12 @@ public class Test {
             System.out.println("pop(): " + s.pop());
         }
         System.out.println("\nStack size  " + s.getSize() + "\nEmpty cells " + s.getCountUnusedArrayCells() + "\nReal sArray size " + s.getArrSize() + "\n");
+
+        Iterator<String> iterator = s.iterator();
+        while (iterator.hasNext()) {
+            String cur = iterator.next();
+            System.out.println("Used iterator -> " + cur);
+        }
+
     }
 }

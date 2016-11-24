@@ -1,5 +1,8 @@
 package hw01.collections.stack;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 import static java.lang.System.exit;
 
 /**
@@ -15,7 +18,8 @@ import static java.lang.System.exit;
  * If set size in constructor then the array will NOT decrease less set size
  * Defined in private method changeArraySize();
  */
-public class StackGeneric<T> {
+public class StackGeneric<T> implements Iterable<T> {
+
     private T[] sArray;
     private T[] tArray;
     private int size = -1; // TODO: 2016-11-22 How to make with a long type?
@@ -46,11 +50,11 @@ public class StackGeneric<T> {
     }
 
     public void push(T item) {
-        //This is used if run empty default constructor
+        //This is using if run empty default constructor
         if (size < 0 && setSize == 0) {
             sArray = (T[]) new Object[1];
             ++size;
-            //This is used if run constructor with size
+            //This is using if run constructor with size
         } else if (size < 0 && setSize > 0) ++size;
 
         // checking current size array 'sArray'
@@ -110,6 +114,39 @@ public class StackGeneric<T> {
                 System.out.println("Error in private method changeArraySize(); Bad option!");
                 exit(1);
                 break;
+        }
+    }
+
+    // Iterator @Override
+    @Override
+    public Iterator<T> iterator() {
+        return new StackIterator(sArray);
+    }
+
+    // Inner class implements Iterator
+    private class StackIterator implements Iterator {
+
+        private int currentPosition;
+        private T[] array;
+
+
+        public StackIterator(T[] items) {
+            this.array = items;
+            this.currentPosition = 0;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return this.currentPosition < StackGeneric.this.size;
+        }
+
+        @Override
+        public T next() {
+            if (this.hasNext()) {
+                ++currentPosition;
+                return array[currentPosition - 1];
+            }
+            throw new NoSuchElementException();
         }
     }
 }
