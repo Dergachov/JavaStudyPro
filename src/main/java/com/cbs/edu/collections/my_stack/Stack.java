@@ -18,6 +18,10 @@ public class Stack<T> implements Iterable<T> {
         data = new Object[capacity];
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public void push(T elem) {
         if (size == data.length) {
             Object[] temp = new Object[size * 2];
