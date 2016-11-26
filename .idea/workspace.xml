@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc0f88df-20cd-4e89-8117-d98dc7e275ee" name="Default" comment="Todo pics (git &amp; idea)&#10;">
+    <list default="true" id="cc0f88df-20cd-4e89-8117-d98dc7e275ee" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparable/CompareToExample.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparable/EmployeeCompareTo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByCard.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByFirstName.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByLastName.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorBySalary.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorMain.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/EmployeeComparator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/stack/StackGeneric.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/overall/Employee.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/test/java/collections/stack/StackGenericTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/Test.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/homeworks/src/main/java/hw01/todo/after_push_to_git.PNG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/homeworks/src/main/java/hw01/todo/if_select_yes.PNG" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cbs/edu/comparing/Test.java" afterPath="$PROJECT_DIR$/src/main/java/com/cbs/edu/comparing/Test.java" />
     </list>
     <ignored path="JavaStudyPro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +43,41 @@
     <favorites_list name="JavaStudyPro" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="StackGeneric.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/stack/StackGeneric.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8686131">
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#898#899#0" expanded="true" />
+                <element signature="e#927#928#0" expanded="true" />
+                <element signature="e#3311#3312#0" expanded="true" />
+                <element signature="e#3353#3354#0" expanded="true" />
+                <element signature="e#3512#3513#0" expanded="true" />
+                <element signature="e#3551#3552#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StackGenericTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homeworks/src/test/java/collections/stack/StackGenericTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="82" column="59" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -65,9 +111,31 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/homeworks/src/test/java/hw01/collections/stack/StackTest.java" />
         <option value="$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/Stack.java" />
+        <option value="$PROJECT_DIR$/homeworks/.gitignore" />
         <option value="$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java" />
         <option value="$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/Test.java" />
-        <option value="$PROJECT_DIR$/homeworks/.gitignore" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/stack/StackGenericTest.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/stack/TestTest.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/test/collections/stack/TestTest.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/test/stack/Test.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/stack/Test.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/cbs/edu/collections/my_stack/StackTest.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/compare/CompareTo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cbs/edu/comparing/Employee.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/compare/CompareToExample.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparable/Employee.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparable/EmployeeCompareTo.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparable/CompareToExample.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorExample.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/EmployeeComparator.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByCard.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByFirstName.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorMain.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/overall/Employee.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByLastName.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorBySalary.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/test/java/collections/stack/StackGenericTest.java" />
+        <option value="$PROJECT_DIR$/homeworks/src/main/java/collections/stack/StackGeneric.java" />
       </list>
     </option>
   </component>
@@ -122,6 +190,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -143,13 +212,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -159,53 +227,76 @@
     <property name="SearchEverywhereHistoryKey" value="Iterab&#9;PSI&#9;JAVA://java.lang.Iterable&#10;coll&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/Collection.java&#10;java.util.Stack&#9;PSI&#9;JAVA://java.util.Stack&#10;list&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/ListIterator.java&#10;ALi&#9;FILE&#9;jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/util/ArrayList.java&#10;Iterable&#9;PSI&#9;JAVA://java.lang.Iterable" />
     <property name="prop_add_unversioned_files" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="hw01.collections.stack" />
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="collections.stack" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Serezha\IdeaProjects\JavaStudyPro\JavaStudyPro" />
-      <recent name="C:\Users\Serezha\IdeaProjects\JavaStudyPro\JavaStudyPro\homeworks" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.cbs.edu.generics" />
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Serezha\IdeaProjects\JavaStudyPro\JavaStudyPro\homeworks\src\test\java\collections\stack" />
       <recent name="C:\Users\Serezha\IdeaProjects\JavaStudyPro\JavaStudyPro\homeworks" />
       <recent name="C:\Users\Evgeniy\JavaStudyPro\src\main\java\com\cbs\edu\collections\materials" />
       <recent name="C:\Users\Evgeniy\JavaStudyPro\src" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="hw01.collections.stack" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="collections.comparing.comparator" />
+      <recent name="collections.comparing.comparable" />
+      <recent name="com.cbs.edu.generics" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Serezha\IdeaProjects\JavaStudyPro\JavaStudyPro\homeworks\src\test\java" />
+      <recent name="C:\Users\Serezha\IdeaProjects\JavaStudyPro\JavaStudyPro\homeworks\src\test" />
+      <recent name="C:\Users\Serezha\IdeaProjects\JavaStudyPro\JavaStudyPro" />
+      <recent name="C:\Users\Serezha\IdeaProjects\JavaStudyPro\JavaStudyPro\homeworks" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
-    <configuration default="false" name="IteratorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.StackGenericTest.testPop">
+    <configuration default="false" name="StackGenericTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.cbs.edu.collections.*" />
+          <option name="PATTERN" value="collections.stack.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.cbs.edu.collections.IteratorTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaStudyPro" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="MainTest.f" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="JavaStudyPro" />
+      <module name="homeworks" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="f" />
+      <option name="MAIN_CLASS_NAME" value="collections.stack.StackGenericTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="StackGenericTest.testPop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="collections.stack.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="homeworks" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="collections.stack" />
+      <option name="MAIN_CLASS_NAME" value="collections.stack.StackGenericTest" />
+      <option name="METHOD_NAME" value="testPop" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -219,14 +310,14 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="ListIteratorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="CompareToExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.cbs.edu.collections.*" />
+          <option name="PATTERN" value="collections.comparing.comparable.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.cbs.edu.collections.ListIteratorTest" />
+      <option name="MAIN_CLASS_NAME" value="collections.comparing.comparable.CompareToExample" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -235,18 +326,13 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaStudyPro" />
+      <module name="homeworks" />
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="BoxingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.cbs.edu.collections.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.cbs.edu.collections.BoxingTest" />
+    <configuration default="false" name="ComparatorExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="ComparatorExample" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -255,18 +341,18 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaStudyPro" />
+      <module name="homeworks" />
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="ComparatorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="hw01.collections.stack.*" />
+          <option name="PATTERN" value="collections.comparing.comparator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="hw01.collections.stack.Test" />
+      <option name="MAIN_CLASS_NAME" value="collections.comparing.comparator.ComparatorMain" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -727,19 +813,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.IteratorTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MainTest.f" />
-      <item index="2" class="java.lang.String" itemvalue="Application.ListIteratorTest" />
-      <item index="3" class="java.lang.String" itemvalue="Application.BoxingTest" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Test" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.StackGenericTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.StackGenericTest.testPop" />
+      <item index="2" class="java.lang.String" itemvalue="Application.CompareToExample" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ComparatorExample" />
+      <item index="4" class="java.lang.String" itemvalue="Application.ComparatorMain" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Test" />
-        <item index="1" class="java.lang.String" itemvalue="Application.BoxingTest" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ListIteratorTest" />
-        <item index="3" class="java.lang.String" itemvalue="Application.IteratorTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MainTest.f" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.StackGenericTest.testPop" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ComparatorMain" />
+        <item index="2" class="java.lang.String" itemvalue="Application.CompareToExample" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ComparatorExample" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.StackGenericTest" />
       </list>
     </recent_temporary>
   </component>
@@ -766,7 +852,12 @@
       <workItem from="1479996030990" duration="337000" />
       <workItem from="1480002218680" duration="1343000" />
       <workItem from="1480014278855" duration="59000" />
-      <workItem from="1480074036680" duration="498000" />
+      <workItem from="1480074036680" duration="780000" />
+      <workItem from="1480090601045" duration="357000" />
+      <workItem from="1480151688921" duration="4267000" />
+      <workItem from="1480157824286" duration="1113000" />
+      <workItem from="1480158999177" duration="312000" />
+      <workItem from="1480159376894" duration="17945000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1479822265408</created>
@@ -810,16 +901,49 @@
       <option name="project" value="LOCAL" />
       <updated>1479994414280</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=".">
+      <created>1480074567018</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1480074567018</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainTest_f - 2016.11.22 at 18h 10m 55s.xml">
-      <configuration name="MainTest.f" configurationId="JUnit" />
+    <history-entry file="StackGenericTest - 2016.11.26 at 15h 34m 18s.xml">
+      <configuration name="StackGenericTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 15h 06m 40s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 15h 07m 06s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 15h 33m 02s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 15h 33m 21s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 15h 33m 40s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 18h 45m 32s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 18h 46m 06s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 18h 46m 32s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StackGenericTest_testPop - 2016.11.26 at 18h 47m 16s.xml">
+      <configuration name="StackGenericTest.testPop" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47355000" />
+    <option name="totallyTimeSpent" value="71631000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,7 +956,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -840,12 +964,13 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32322055" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33060747" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32126167" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33060747" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46261683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22829582" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22829582" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827103" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -859,8 +984,35 @@
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943925" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3259346" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32126167" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33060747" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46261683" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22829582" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827103" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -880,11 +1032,57 @@
     <MESSAGE value="Create class StackGeneric&#10;  - Released `push()` and `pop()` methods at LIFO principle&#10;  - Add private method with autoresize array stack&#10;  - Some comments &amp; docs&#10;" />
     <MESSAGE value="Create inner private class StackIterator&#10;  - implements Iterable&lt;T&gt; interface&#10;  - implements an inner class as implementation of Iterator&lt;T&gt; interface&#10;" />
     <MESSAGE value="Todo pics (git &amp; idea)&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Todo pics (git &amp; idea)&#10;" />
+    <MESSAGE value=" &#10;" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="69" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java</url>
+          <line>64</line>
+          <properties />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java</url>
+          <line>65</line>
+          <properties />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java</url>
+          <line>66</line>
+          <properties />
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java</url>
+          <line>68</line>
+          <properties />
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java</url>
+          <line>71</line>
+          <properties />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -893,105 +1091,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/hw/hw01">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/materials/collections_performance.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/materials/collections_road_map.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/materials/collections_schema.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/generics/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/generics/GenericPair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/IteratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/ListIteratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/BoxingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/hw/hw01">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/generics/Pair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/generics/GenericPair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/IteratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/ListIteratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/BoxingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/hw/hw01">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1017,7 +1116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,13 +1138,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/io/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1058,14 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4950884">
           <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/BoxingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05147059">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1088,7 +1171,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6051081">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,7 +1336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1290,35 +1371,262 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/my_stack/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/cbs/edu/collections/my_stack/StackTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3481481">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/Comparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="17" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/Test.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/comparing/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15555556">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.40826246">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="38" />
+          <folding>
+            <element signature="e#338#339#0" expanded="false" />
+            <element signature="e#370#371#0" expanded="false" />
+            <element signature="e#430#431#0" expanded="false" />
+            <element signature="e#475#476#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/hw01/collections/stack/StackGeneric.java">
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparable/EmployeeCompareTo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05185185">
-          <caret line="111" column="22" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
+        <state vertical-scroll-proportion="2.3161764">
+          <caret line="65" column="55" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+          <folding>
+            <element signature="e#1448#1449#0" expanded="true" />
+            <element signature="e#1510#1511#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparable/CompareToExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3314815">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/comparing/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.93333334">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/comparing/SortByEmployeeNameComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="e#202#203#0" expanded="false" />
+            <element signature="e#261#262#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cbs/edu/collections/BoxingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31053606">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/EmployeeComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5555556">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46666667">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/overall/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46666667">
+          <caret line="9" column="71" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorBySalary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62222224">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46666667">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByFirstName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5185185">
+          <caret line="10" column="62" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/comparing/comparator/ComparatorByLastName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5703704">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/test/java/collections/stack/StackGenericTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="59" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/stack/StackGeneric.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8686131">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#927#928#0" expanded="true" />
+            <element signature="e#3311#3312#0" expanded="true" />
+            <element signature="e#3353#3354#0" expanded="true" />
+            <element signature="e#3512#3513#0" expanded="true" />
+            <element signature="e#3551#3552#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>homeworks</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: junit:junit:4.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
