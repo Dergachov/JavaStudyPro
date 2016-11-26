@@ -7,7 +7,7 @@ public class Employee{
     private int cardID;
     private String nameFirst;
     private String nameLast;
-    //private enum Sex // TODO: 2016-11-26  How to use ENUM in classes?
+    //private enum Sex {MALE, FEMALE} // TODO: 2016-11-26  How to use ENUM in classes?
     private int age;
     //private enum Rank { SUPPORT, TESTER, PROJECTMANAGER, TEAMLEADER, DEVELOPER, SENIOR}
     private double salary;

@@ -26,7 +26,7 @@ public class Test {
             }
         });
 
-//        Collections.sort(employees, (o1, o2) -> o1.getName().compareTo(o2.getName()));
+//        Collections.sort(employees, (o1, o2) -> o1.getName().comparable(o2.getName()));
 
 
         System.out.println(employees);
