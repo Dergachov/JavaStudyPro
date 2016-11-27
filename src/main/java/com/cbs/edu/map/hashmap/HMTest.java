@@ -3,7 +3,9 @@ package com.cbs.edu.map.hashmap;
 import com.cbs.edu.comparing.Employee;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class HMTest {
     public static void main(String[] args) {
@@ -15,7 +17,7 @@ public class HMTest {
 //        System.out.println(e2.hashCode());
 //        System.out.println(e3.hashCode());
 
-        Map<String, String> map = new HashMap<>();
+        HashMap<String, String> map = new HashMap<>();
 
         map.put("1", "One");
         map.put("1", "One");
@@ -23,7 +25,26 @@ public class HMTest {
         map.put("2", "Two");
         map.put(null, "One");
 
-        System.out.println(map.get("2"));
-        System.out.println(map);
+//        System.out.println(map.get("2"));
+//        System.out.println(map);
+
+        Set<Map.Entry<String, String>> entries = map.entrySet();
+
+        Iterator<Map.Entry<String, String>> iterator = entries.iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, String> next = iterator.next();
+            System.out.println(next.getKey() + " - " + next.getValue());
+        }
+
+        Set<String> strings = map.keySet();
+        for (String key : strings) {
+            System.out.println(key);
+        }
+
+        for (String value : map.values()) {
+            System.out.println(value);
+        }
+
+
     }
 }
