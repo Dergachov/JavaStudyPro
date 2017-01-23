@@ -14,7 +14,7 @@ public class StackGenericTest {
     private StackGeneric<Employee> stackNoSize = new StackGeneric<>();
     private StackGeneric<Employee> stackWithSize = new StackGeneric<>(5);
 
-    Employee em1 = new Employee(123789456, "Peter", "Jackson", 30, 5000);
+    Employee em1 = new Employee(123789456, "Peter", "Jackson", 30, 5001);
     Employee em2 = new Employee(321789456, "Dora", "Norris", 25, 2000);
     Employee em3 = new Employee(123456987, "Peter", "O’Connor", 24, 8000);
     Employee em4 = new Employee(123654789, "Mark", "Jefferson", 22, 8000);
