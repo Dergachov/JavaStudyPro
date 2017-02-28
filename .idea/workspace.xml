@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc0f88df-20cd-4e89-8117-d98dc7e275ee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/MyArrayList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/TestMyArrayList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/cbs/edu/collections/my_link_list/LinkedListTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/cbs/edu/collections/my_link_list/LinkedListTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/MyArrayList.java" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/MyArrayList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/TestMyArrayList.java" afterPath="$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/TestMyArrayList.java" />
     </list>
     <ignored path="JavaStudyPro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,21 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MyArrayList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyArrayList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/MyArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="66">
+              <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestMyArrayList.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestMyArrayList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/TestMyArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="720">
+              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -1285,7 +1284,7 @@
       <workItem from="1486840886861" duration="2000" />
       <workItem from="1486844383586" duration="11000" />
       <workItem from="1487188937469" duration="6003000" />
-      <workItem from="1488280803036" duration="842000" />
+      <workItem from="1488280803036" duration="1145000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1479822265408</created>
@@ -1364,7 +1363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485210995161</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="implements methods:&#10;&#10;- add(T value); &#10;- add(int index, T value); &#10;- get(int index); &#10;- set(int index, T value); &#10;- getSize();">
+      <created>1488283108254</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1488283108254</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1400,7 +1406,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91810000" />
+    <option name="totallyTimeSpent" value="92113000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1421,7 +1427,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3488624" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46153846" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1511,7 +1517,8 @@
     <MESSAGE value="." />
     <MESSAGE value="- Recode StackGeneric&#10;-&gt; Create TestStackGeneric class in test path&#10;- Create Employee`s classes&#10;-&gt; Implements Comparable&#10;-&gt; Implements Comparator" />
     <MESSAGE value="-test git" />
-    <option name="LAST_COMMIT_MESSAGE" value="-test git" />
+    <MESSAGE value="implements methods:&#10;&#10;- add(T value); &#10;- add(int index, T value); &#10;- get(int index); &#10;- set(int index, T value); &#10;- getSize();" />
+    <option name="LAST_COMMIT_MESSAGE" value="implements methods:&#10;&#10;- add(T value); &#10;- add(int index, T value); &#10;- get(int index); &#10;- set(int index, T value); &#10;- getSize();" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1636,6 +1643,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1770">
           <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1650,6 +1658,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="57" column="41" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1661,18 +1670,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/TestMyArrayList.java">
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/MyArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="66">
+          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/MyArrayList.java">
+    <entry file="file://$PROJECT_DIR$/homeworks/src/main/java/collections/arraylist/TestMyArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="720">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
           <folding />
         </state>
       </provider>

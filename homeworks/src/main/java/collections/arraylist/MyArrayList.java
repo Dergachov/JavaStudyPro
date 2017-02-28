@@ -24,7 +24,7 @@ public class MyArrayList<T> {
         this.cursor = 0;
     }
 
-    public void addData(T value) {
+    public void add(T value) {
         if (cursor == size) {
             Object[] temp = new Object[(int) ((size + capacity) * 1.5)];
             System.arraycopy(data, 0, temp, 0, data.length);
@@ -37,19 +37,19 @@ public class MyArrayList<T> {
         }
     }
 
-    public void addData(int index, T value) {
+    public void add(int index, T value) {
         if (index == cursor)
             throw new IndexOutOfBoundsException("addData(int index, T value) --> Index out of array range");
         data[index] = value;
     }
 
-    public T getData(int index) {
+    public T get(int index) {
         if (index == cursor) throw new IndexOutOfBoundsException("getData(int index) --> Index out of array range");
         T item = (T) data[index];
         return item;
     }
 
-    public void setData(int index, T value) {
+    public void set(int index, T value) {
         if (index == cursor)
             throw new IndexOutOfBoundsException("setData(int index, T value) --> Index out of array range");
         data[index] = value;

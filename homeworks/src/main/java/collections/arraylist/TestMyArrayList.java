@@ -14,17 +14,17 @@ public class TestMyArrayList {
 
         System.out.println(test.getSize());
         System.out.println(test.getCursor());
-        test.addData("String text 1");
-        test.addData("String text 2");
-        test.addData("String text 3");
-        test.addData("String text 4");
-        test.addData(0,"String text 5");
-        test.setData(1,"Hello world!!!");
+        test.add("String text 1");
+        test.add("String text 2");
+        test.add("String text 3");
+        test.add("String text 4");
+        test.add(0,"String text 5");
+        test.set(1,"Hello world!!!");
         System.out.println(test.getCursor());
-        System.out.println(test.getData(0));
-        System.out.println(test.getData(1));
-        System.out.println(test.getData(2));
-        System.out.println(test.getData(3));
+        System.out.println(test.get(0));
+        System.out.println(test.get(1));
+        System.out.println(test.get(2));
+        System.out.println(test.get(3));
         //System.out.println(test.getData(4));
     }
 }
