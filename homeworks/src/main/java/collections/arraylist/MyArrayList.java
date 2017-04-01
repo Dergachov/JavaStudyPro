@@ -2,6 +2,12 @@ package collections.arraylist;
 
 import java.util.Iterator;
 
+/**
+ * @MyArrayList with default capacity size 12.
+ * - void add(T value) if array is full increase increase will by like: (current size + capacity) * 1.5).
+ * - field 'cursor' always see in the end of array Object[] data.
+ */
+
 public class MyArrayList<T> implements Iterable<T> {
     private int size = 0;
     private int capacity = 12;
@@ -16,14 +22,23 @@ public class MyArrayList<T> implements Iterable<T> {
     }
 
     public MyArrayList(int arraySize) {
-        if (arraySize == 0)
-            throw new IndexOutOfBoundsException("MyArrayList(int arraySize) --> Array size can`t be null");
-        this.data = new Object[arraySize];
-        this.size = data.length;
-        this.cursor = 0;
+        if (arraySize == 0) {
+            this.data = new Object[capacity];
+            this.size = data.length;
+            this.cursor = 0;
+        } else {
+            this.data = new Object[arraySize];
+            this.size = data.length;
+            this.cursor = 0;
+        }
     }
 
+    /**
+     * @Method add() default add item in the end of array Object[] data
+     * and will by increase if no free cells available like (size + capacity) * 1.5)
+     */
     public void add(T value) {
+        //resize here
         if (cursor == size) {
             Object[] temp = new Object[(int) ((size + capacity) * 1.5)];
             System.arraycopy(data, 0, temp, 0, data.length);
@@ -31,7 +46,7 @@ public class MyArrayList<T> implements Iterable<T> {
             data[cursor] = value;
             size = data.length;
             ++cursor;
-        } else {
+        } else { //default
             data[cursor] = value;
             ++cursor;
         }
@@ -40,15 +55,24 @@ public class MyArrayList<T> implements Iterable<T> {
     public void add(int index, T value) {
         if (index == cursor && cursor != 0)
             throw new IndexOutOfBoundsException("addData(int index, T value) --> Index out of array range");
-        if (index == 0) { //BEGIN
+        /**
+         * for insert in begin of array Object[] data
+         */
+        if (index == 0) {
             Object[] temp = new Object[size + 1];
             temp[0] = value;
             System.arraycopy(data, 0, temp, 1, size - (size - cursor));
             data = temp;
             size = data.length;
             ++cursor;
-        } else if (index == cursor - 1) { // END
-            if ((size - cursor) <= 0) { // if doesn't free cells
+            /**
+             * for insert in the end of array Object[] data
+             */
+        } else if (index == cursor - 1) {
+            /**
+             * check for free space in array Object[] data
+             */
+            if ((size - cursor) <= 0) {
                 Object[] temp = new Object[size + capacity];
                 System.arraycopy(data, 0, temp, 0, cursor);
                 temp[cursor] = value;
@@ -56,15 +80,91 @@ public class MyArrayList<T> implements Iterable<T> {
                 ++cursor;
             } else {
                 data[cursor] = value;
-                cursor++;
+                ++cursor;
             }
         } else {
+            /**
+             * for insert in the middle of array Object[] data
+             */
             Object[] temp = new Object[size + 1];
             System.arraycopy(data, 0, temp, 0, index);
             temp[index] = value;
             System.arraycopy(data, index, temp, index + 1, size - index);
             data = temp;
             ++cursor;
+        }
+    }
+
+    public void remove(int index) {
+        if (index == cursor && cursor != 0)
+            throw new IndexOutOfBoundsException("getData(int index) --> Index out of array range");
+        /**
+         * for delete in the begin of array Object[] data
+         */
+        if (index == 0 && cursor > 1) {
+            /**
+             * there is optimization for method like add();
+             */
+            if ((size - cursor) > capacity) { //check current capacity
+                Object[] temp = new Object[(size - (size - cursor)) + capacity];
+                System.arraycopy(data, 1, temp, 0, size - (size - cursor));
+                data = temp;
+                size = data.length;
+                --cursor;
+            } else {
+                Object[] temp = new Object[size];
+                System.arraycopy(data, 1, temp, 0, size - 1);
+                data = temp;
+                size = data.length;
+                --cursor;
+            }
+            /**
+             *for delete in the end of array Object[] data
+             */
+        } else if ((cursor - 1) == index) {
+            /**
+             * there is optimization for resize of array Object[] data
+             */
+            if (counterFreeCells != capacity) {
+                data[index] = null;
+                --cursor;
+                ++counterFreeCells;
+            } else {
+                Object[] temp = new Object[index + capacity];
+                System.arraycopy(data, 0, temp, 0, index);
+                data = temp;
+                size = data.length;
+                cursor = index;
+                counterFreeCells = 0;
+            }
+            /**
+             * there is optimization for resize of array 'Object[] data' if 'begin == end'
+             */
+            if (cursor == 1 && index == 0) {
+                Object[] temp = new Object[capacity];
+                data = temp;
+                size = data.length;
+                cursor = 0;
+            }
+        } else {
+            /**
+             * for delete in the middle of array 'Object[] data' and resize it if have got many free cells
+             */
+            if (size > capacity && capacity < (size - cursor) - 1) {
+                Object[] temp = new Object[(size - (size - cursor)) + capacity];
+                System.arraycopy(data, 0, temp, 0, index);
+                System.arraycopy(data, index + 1, temp, index, (size - cursor) - 1);
+                data = temp;
+                size = data.length;
+                --cursor;
+            } else {
+                Object[] temp = new Object[(size - 1)];
+                System.arraycopy(data, 0, temp, 0, index);
+                System.arraycopy(data, index + 1, temp, index, (size - index) - 1);
+                data = temp;
+                size = data.length;
+                --cursor;
+            }
         }
     }
 
@@ -81,12 +181,18 @@ public class MyArrayList<T> implements Iterable<T> {
         data[index] = value;
     }
 
-    public int getLength() {
-        return size;
+    /**
+     * Method length() return current non free length of array Object[] data
+     */
+    public int length() {
+        return cursor;
     }
 
-    public int getSize() {
-        return cursor - 1;
+    /**
+     * Method size() return current size of array Object[] data
+     */
+    public int size() {
+        return size;
     }
 
     public boolean contains(Object o) {
@@ -94,72 +200,6 @@ public class MyArrayList<T> implements Iterable<T> {
             if (get(i).equals(o)) return true;
         }
         return false;
-    }
-
-    //debug
-    public int getCursor() {
-        return cursor;
-    }
-
-    public void remove(int index) {
-        if (index == cursor && cursor != 0)
-            throw new IndexOutOfBoundsException("getData(int index) --> Index out of array range");
-        if (index == 0 && cursor > 1) {// If 'delete position' will be in BEGIN of array
-            if ((size - cursor) > capacity) { //Optimization for method add();
-                Object[] temp = new Object[(size - (size - cursor)) + capacity];
-                System.arraycopy(data, 1, temp, 0, size - (size - cursor));
-                data = temp;
-                size = data.length;
-            } else {
-                Object[] temp = new Object[size];
-                System.arraycopy(data, 1, temp, 0, size - 1);
-                data = temp;
-                size = data.length;
-            }
-        } else if ((cursor - 1) == index) { // If 'delete position' will be in end of array
-            //Optimization
-            if (counterFreeCells != capacity) {
-                if (size < capacity || size == capacity) { // For small arrays
-                    data[index] = null;
-                    --cursor;
-                    ++counterFreeCells;
-                } else //For bigger arrays from high value to default capacity
-                {
-                    data[index] = null;
-                    --cursor;
-                    ++counterFreeCells;
-                }
-            } else {
-                Object[] temp = new Object[index];
-                System.arraycopy(data, 0, temp, 0, index);
-                data = temp;
-                size = data.length;
-                cursor = index;
-                counterFreeCells = 0;
-            }
-            if (cursor == 1 && index == 0) { // If END now in BEGIN
-                Object[] temp = new Object[capacity];
-                data = temp;
-                size = data.length;
-                cursor = 0;
-            }
-        } else {
-            if (size > capacity && capacity < (size - cursor) - 1) { // Delete free cells on the end of arrays
-                Object[] temp = new Object[(size - (size - cursor)) + capacity];
-                System.arraycopy(data, 0, temp, 0, index);
-                System.arraycopy(data, index + 1, temp, index, (size - cursor) - 1);
-                data = temp;
-                size = data.length;
-                --cursor;
-            } else {
-                Object[] temp = new Object[(size - 1)];
-                System.arraycopy(data, 0, temp, 0, index);
-                System.arraycopy(data, index + 1, temp, index, (size - index) - 1);
-                data = temp;
-                size = data.length;
-                --cursor;
-            }
-        }
     }
 
     @Override
