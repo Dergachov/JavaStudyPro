@@ -1,6 +1,7 @@
 package collections.arraylist;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * @MyArrayList with default capacity size 12.
@@ -204,6 +205,28 @@ public class MyArrayList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new MyArrayListIterator();
+    }
+
+    private class MyArrayListIterator implements Iterator<T> {
+        private int cursor;
+
+        public MyArrayListIterator() {
+            this.cursor = 0;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return this.cursor < MyArrayList.this.cursor;
+        }
+
+        @Override
+        public T next() {
+            if (this.hasNext()) {
+                ++this.cursor;
+                return (T) data[cursor - 1];
+            }
+            throw new NoSuchElementException();
+        }
     }
 }
