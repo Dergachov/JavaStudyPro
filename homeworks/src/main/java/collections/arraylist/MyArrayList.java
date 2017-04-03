@@ -1,13 +1,12 @@
 package collections.arraylist;
 
-import java.util.Arrays;
+//import java.util.Arrays;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
  * @MyArrayList
- * -
- * -
  */
 
 public class MyArrayList<T> implements Iterable<T> {
@@ -25,7 +24,7 @@ public class MyArrayList<T> implements Iterable<T> {
         init(arraySize);
     }
 
-    //READY
+
     private void init(int incomeSize) {
         if (incomeSize < 0)
             throw new IllegalArgumentException(" Illegal Capacity: " + incomeSize);
@@ -33,16 +32,20 @@ public class MyArrayList<T> implements Iterable<T> {
         this.length = data.length;
     }
 
-    //READY
     private void checkRange(int incomeVar) {
         if (incomeVar < 0 || incomeVar > size)
             throw new IndexOutOfBoundsException(" Index: " + incomeVar + ", Size: " + size);
     }
 
-    //READY
+    private void checkRemoveRange(int incomeVar) {
+        if (incomeVar < 0 || incomeVar >= size)
+            throw new IndexOutOfBoundsException(" Index: " + incomeVar + ", Size: " + size);
+    }
+
     private void increaseLength() {
         if (length - size <= 1) {
-            temp = Arrays.copyOf(data, data.length);
+            //temp = Arrays.copyOf(data, data.length); // It's good or 'temp = data; or System.arraycopy' ?
+            temp = data;
             data = new Object[(int) (size * 1.005 + capacity)];
             System.arraycopy(temp, 0, data, 0, temp.length);
             length = data.length;
@@ -50,52 +53,65 @@ public class MyArrayList<T> implements Iterable<T> {
         }
     }
 
-    //READY
+    private void decreaseLength() {
+        if (capacity * 2 <= length - size) {
+            temp = data;
+            data = new Object[size + capacity];
+            System.arraycopy(temp, 0, data, 0, size);
+            temp = null;
+            System.gc();
+        }
+    }
+
     public boolean add(T value) {
         increaseLength();
         data[size++] = value;
         return true;
     }
 
-    //READY
-    public boolean add(int index, T value) {
+    public boolean add(int index, T item) {
         checkRange(index);
-        if (index <= size - 1) {// check this
+        if (index <= size - 1) {
             increaseLength();
             temp = new Object[size - index];
             System.arraycopy(data, index, temp, 0, size - index);
-            data[index] = value;
+            data[index] = item;
             System.arraycopy(temp, 0, data, index + 1, size - index);
             ++size;
             temp = null;
             return true;
         }
-        return (add(value)) ? true : false;
-    }
-    //CODING
-    public void remove(int index) {
-        checkRange(index);
+        return (add(item)) ? true : false;
     }
 
-    //READY
+    public T remove(int index) {
+        checkRemoveRange(index);
+        T item = (T) data[index];
+        System.arraycopy(data, index + 1, data, index, size - index);
+        data[--size] = null; // it makes sense of ' = null' ?
+        decreaseLength();
+        return item;
+    }
+
+
     public T get(int index) {
         T item = (T) data[index];
         return item;
     }
 
-    //READY
-    public void set(int index, T value) {
+    public boolean set(int index, T item) {
         checkRange(index);
-        data[index] = value;
+        data[index] = item;
+        return true;
     }
 
     public int size() {
-        return this.size;
+        return size;
     }
 
     public boolean contains(Object o) {
-        for (int i = 0; i < this.size; i++) {
-            if (get(i).equals(o)) return true;
+        for (int i = 0; i < size; i++) {
+            if (get(i).equals(o)) return true; // Maybe () ? :
         }
         return false;
     }
