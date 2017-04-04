@@ -6,7 +6,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * @MyArrayList
+ * Class MyArrayList
+ *
+ * @version 0.2
+ * @since 04.04.2017
  */
 
 public class MyArrayList<T> implements Iterable<T> {
@@ -24,7 +27,9 @@ public class MyArrayList<T> implements Iterable<T> {
         init(arraySize);
     }
 
-
+    /**
+     * Method init(int incomeSize) check incoming size and initialization field <>data</>.
+     */
     private void init(int incomeSize) {
         if (incomeSize < 0)
             throw new IllegalArgumentException(" Illegal Capacity: " + incomeSize);
@@ -32,19 +37,20 @@ public class MyArrayList<T> implements Iterable<T> {
         this.length = data.length;
     }
 
+    /**
+     * Method checkRange(int incomeVar) check incoming index.
+     */
     private void checkRange(int incomeVar) {
         if (incomeVar < 0 || incomeVar > size)
             throw new IndexOutOfBoundsException(" Index: " + incomeVar + ", Size: " + size);
     }
 
-    private void checkRemoveRange(int incomeVar) {
-        if (incomeVar < 0 || incomeVar >= size)
-            throw new IndexOutOfBoundsException(" Index: " + incomeVar + ", Size: " + size);
-    }
-
+    /**
+     * Method increaseLength() increase array length of field <b>data<b/>.
+     */
     private void increaseLength() {
         if (length - size <= 1) {
-            //temp = Arrays.copyOf(data, data.length); // It's good or 'temp = data; or System.arraycopy' ?
+            //temp = Arrays.copyOf(data, data.length); //Is it is a good or 'temp = data; or System.arraycopy' ?
             temp = data;
             data = new Object[(int) (size * 1.005 + capacity)];
             System.arraycopy(temp, 0, data, 0, temp.length);
@@ -53,6 +59,9 @@ public class MyArrayList<T> implements Iterable<T> {
         }
     }
 
+    /**
+     * Method decreaseLength() decrease array length of field <b>data<b/>.
+     */
     private void decreaseLength() {
         if (capacity * 2 <= length - size) {
             temp = data;
@@ -85,14 +94,13 @@ public class MyArrayList<T> implements Iterable<T> {
     }
 
     public T remove(int index) {
-        checkRemoveRange(index);
+        checkRange(index);
         T item = (T) data[index];
         System.arraycopy(data, index + 1, data, index, size - index);
-        data[--size] = null; // it makes sense of ' = null' ?
+        data[--size] = null; // Is it makes sense of ' = null' in the end of array ?
         decreaseLength();
         return item;
     }
-
 
     public T get(int index) {
         T item = (T) data[index];
