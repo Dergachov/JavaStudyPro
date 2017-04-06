@@ -1,7 +1,5 @@
 package collections.arraylist;
 
-//import java.util.Arrays;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -14,58 +12,50 @@ import java.util.NoSuchElementException;
 
 public class MyArrayList<T> implements Iterable<T> {
     private int size;
-    private int length;
-    private final int capacity = 12;
+    private int capacity;
+    private final int DEFAULT_CAPACITY = 12;
     private Object[] data;
     private Object[] temp;
 
     public MyArrayList() {
-        init(capacity);
+        init(DEFAULT_CAPACITY);
     }
 
     public MyArrayList(int arraySize) {
         init(arraySize);
     }
 
-    /**
-     * Method init(int incomeSize) check incoming size and initialization field <>data</>.
-     */
+
+    //Method init(int incomeSize) check incoming size and initialization field 'data'.
     private void init(int incomeSize) {
         if (incomeSize < 0)
             throw new IllegalArgumentException(" Illegal Capacity: " + incomeSize);
-        this.data = new Object[(incomeSize > capacity) ? incomeSize : capacity];
-        this.length = data.length;
+        this.data = new Object[(incomeSize > DEFAULT_CAPACITY) ? incomeSize : DEFAULT_CAPACITY];
+        this.capacity = data.length;
     }
 
-    /**
-     * Method checkRange(int incomeVar) check incoming index.
-     */
+    //Method checkRange(int incomeVar) check incoming index.
     private void checkRange(int incomeVar) {
         if (incomeVar < 0 || incomeVar > size)
             throw new IndexOutOfBoundsException(" Index: " + incomeVar + ", Size: " + size);
     }
 
-    /**
-     * Method increaseLength() increase array length of field <b>data<b/>.
-     */
+    //Method increaseLength() increase array capacity of field 'data'.
     private void increaseLength() {
-        if (length - size <= 1) {
-            //temp = Arrays.copyOf(data, data.length); //Is it is a good or 'temp = data; or System.arraycopy' ?
+        if (capacity - size <= 1) {
             temp = data;
-            data = new Object[(int) (size * 1.005 + capacity)];
+            data = new Object[(int) (size * 1.005 + DEFAULT_CAPACITY)];
             System.arraycopy(temp, 0, data, 0, temp.length);
-            length = data.length;
+            capacity = data.length;
             temp = null;
         }
     }
 
-    /**
-     * Method decreaseLength() decrease array length of field <b>data<b/>.
-     */
+    //Method decreaseLength() decrease array capacity of field 'data'.
     private void decreaseLength() {
-        if (capacity * 2 <= length - size) {
+        if (DEFAULT_CAPACITY * 2 <= capacity - size) {
             temp = data;
-            data = new Object[size + capacity];
+            data = new Object[size + DEFAULT_CAPACITY];
             System.arraycopy(temp, 0, data, 0, size);
             temp = null;
             System.gc();
@@ -90,21 +80,20 @@ public class MyArrayList<T> implements Iterable<T> {
             temp = null;
             return true;
         }
-        return (add(item)) ? true : false;
+        return (add(item));
     }
 
     public T remove(int index) {
         checkRange(index);
         T item = (T) data[index];
         System.arraycopy(data, index + 1, data, index, size - index);
-        data[--size] = null; // Is it makes sense of ' = null' in the end of array ?
+        data[--size] = null;
         decreaseLength();
         return item;
     }
 
     public T get(int index) {
-        T item = (T) data[index];
-        return item;
+        return (T) data[index];
     }
 
     public boolean set(int index, T item) {
@@ -119,7 +108,7 @@ public class MyArrayList<T> implements Iterable<T> {
 
     public boolean contains(Object o) {
         for (int i = 0; i < size; i++) {
-            if (get(i).equals(o)) return true; // Maybe () ? :
+            if (get(i).equals(o)) return true;
         }
         return false;
     }
