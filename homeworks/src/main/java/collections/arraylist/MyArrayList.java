@@ -25,7 +25,6 @@ public class MyArrayList<T> implements Iterable<T> {
         init(arraySize);
     }
 
-
     //Method init(int incomeSize) check incoming size and initialization field 'data'.
     private void init(int incomeSize) {
         if (incomeSize < 0)
@@ -93,6 +92,7 @@ public class MyArrayList<T> implements Iterable<T> {
     }
 
     public T get(int index) {
+        checkRange(index);
         return (T) data[index];
     }
 

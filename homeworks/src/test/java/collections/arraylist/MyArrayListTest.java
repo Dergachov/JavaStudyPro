@@ -8,98 +8,117 @@ import org.junit.Test;
 import java.util.Iterator;
 
 /***
- * class MyArrayListTest
+ * Test Class MyArrayListTest
  *
  * @version 0.2
- * @since 04.04.2017
+ * @since 07.04.2017
  */
 public class MyArrayListTest {
 
     private MyArrayList<String> myArrayListTest;
-    private static Iterator<String> testIterable;
-    private static String valueArrayItems = "Item number # ";
-    private static final String addItemStart = "addItemStart";
-    private static final String addItemCenter = "addItemCenter";
-    private static final String addItemEnd = "addItemEnd";
-    private static final int numberArrayItems = 13;
-    private static int counter;
+    private Iterator<String> testIterable;
+    private String arrayValue;
+    private final String ADD_ITEM_START;
+    private final String ADD_ITEM_CENTER;
+    private final String ADD_ITEM_END;
+    private final int SIZE_ARRAY;
+
+    {
+        SIZE_ARRAY = 13; // like be >= 13 for test of increase capacity
+        ADD_ITEM_START = "ADD_ITEM_START";
+        ADD_ITEM_CENTER = "ADD_ITEM_CENTER";
+        ADD_ITEM_END = "ADD_ITEM_END";
+        arrayValue = "Item number # ";
+    }
 
     @Before
-    public void init() throws Exception {
-
+    public void before() throws Exception {
         myArrayListTest = new MyArrayList<>();
         testIterable = myArrayListTest.iterator();
-
-        /***
-         * There is test for method add();
-         */
-        for (int numeration = 0; numeration < numberArrayItems; numeration++) {
-            assertTrue(myArrayListTest.add(valueArrayItems + numeration));
+        for (int index = 0; index < SIZE_ARRAY; index++) {
+            myArrayListTest.add(arrayValue + index);
         }
-        assertEquals(myArrayListTest.size(), numberArrayItems);
     }
 
     @Test
-    public void testMethods() throws Exception {
+    public void addTest() throws Exception {
+        boolean actual = myArrayListTest.add(ADD_ITEM_END);
+        assertTrue(actual);
+    }
 
-        /***
-         * There is test for method contains();
-         */
-        for (int index = 0; index < numberArrayItems; index++) {
-            assertFalse(myArrayListTest.contains(valueArrayItems));
-            assertTrue(myArrayListTest.contains(valueArrayItems + index));
+    @Test
+    public void addIndexTest() throws Exception {
+        boolean resultStart = myArrayListTest.add(0, ADD_ITEM_START);
+        boolean resultCenter = myArrayListTest.add(SIZE_ARRAY / 2, ADD_ITEM_CENTER);
+        boolean resultEnd = myArrayListTest.add(SIZE_ARRAY, ADD_ITEM_END);
+        assertTrue(resultStart);
+        assertTrue(resultCenter);
+        assertTrue(resultEnd);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void addWrongIndexTest() throws Exception {
+        myArrayListTest.add(myArrayListTest.size() + 1, ADD_ITEM_END);
+    }
+
+    @Test
+    public void setTest() throws Exception {
+        boolean actual = myArrayListTest.set(0, ADD_ITEM_START);
+        assertTrue(actual);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setWrongIndexTest() throws Exception {
+        myArrayListTest.set(-1, ADD_ITEM_START);
+    }
+
+    @Test
+    public void getTest() throws Exception {
+        int indexItem = 5;
+        String actual = myArrayListTest.get(indexItem);
+        assertEquals(actual, arrayValue + indexItem);
+
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getWrongIndexTest() throws Exception {
+        myArrayListTest.get(-1);
+    }
+
+    @Test
+    public void removeTest() throws Exception {
+        int indexItem = 5;
+        String actual = myArrayListTest.remove(indexItem);
+        assertEquals(actual, arrayValue + indexItem);
+
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void removeWrongIndexTest() throws Exception {
+        myArrayListTest.remove(myArrayListTest.size() + 1);
+    }
+
+    @Test
+    public void containsTest() throws Exception {
+        String indexItem = "1";
+        assertTrue(myArrayListTest.contains(arrayValue + indexItem));
+    }
+
+    @Test
+    public void containsWrongTest() throws Exception {
+        String indexItem = "wrong";
+        assertFalse(myArrayListTest.contains(arrayValue + indexItem));
+    }
+
+    @Test
+    public void sizeTest() throws Exception {
+        assertEquals(myArrayListTest.size(), SIZE_ARRAY);
+    }
+
+    @Test
+    public void iterableTest() throws Exception {
+        for (int index = 0; testIterable.hasNext(); index++) {
+            assertEquals(testIterable.next(), arrayValue + index);
         }
-
-        /***
-         * There are test for methods iterator(); get();
-         */
-        while (testIterable.hasNext()) {
-            assertEquals(testIterable.next(), myArrayListTest.get(counter));
-            ++counter;
-        }
-
-        /***
-         * There are test for methods add(index); get();
-         */
-        assertTrue(myArrayListTest.add(0, addItemStart));
-        assertEquals(myArrayListTest.get(0), addItemStart);
-
-        assertTrue(myArrayListTest.add(myArrayListTest.size() / 2, addItemCenter));
-        assertEquals(myArrayListTest.get(myArrayListTest.size() / 2), addItemCenter);
-
-        assertTrue(myArrayListTest.add(myArrayListTest.size(), addItemEnd));
-        assertEquals(myArrayListTest.get(myArrayListTest.size() - 1), addItemEnd);
-
-        /***
-         * There is test for method remove(index);
-         */
-        for (int index = 0; index < myArrayListTest.size(); index++) {
-            if (myArrayListTest.get(index).equals(addItemStart)) {
-                assertEquals(addItemStart, myArrayListTest.remove(index));
-            } else if (myArrayListTest.get(index).equals(addItemCenter)) {
-                assertEquals(addItemCenter, myArrayListTest.remove(index));
-            } else if (myArrayListTest.get(index).equals(addItemEnd)) {
-                assertEquals(addItemEnd, myArrayListTest.remove(index));
-            }
-        }
-        assertEquals(myArrayListTest.size(), numberArrayItems);
-
-        /***
-         * There are test for methods set(index); remove(index);
-         */
-        assertTrue(myArrayListTest.set(0, addItemStart));
-        assertEquals(myArrayListTest.get(0), addItemStart);
-        assertEquals(myArrayListTest.remove(0), addItemStart); // lastDeletingItems
-
-        assertTrue(myArrayListTest.set(myArrayListTest.size() / 2, addItemCenter));
-        assertEquals(myArrayListTest.get(myArrayListTest.size() / 2), addItemCenter);
-        assertEquals(myArrayListTest.remove(myArrayListTest.size() / 2), addItemCenter); // lastDeletingItems
-
-        assertTrue(myArrayListTest.set(myArrayListTest.size(), addItemEnd));
-        assertEquals(myArrayListTest.get(myArrayListTest.size()), addItemEnd);
-        assertEquals(myArrayListTest.remove(myArrayListTest.size()), addItemEnd); // lastDeletingItems
-
-        int lastDeletingItems = 3;
-        assertEquals(myArrayListTest.size(), numberArrayItems - lastDeletingItems);
     }
 }
