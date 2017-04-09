@@ -18,14 +18,14 @@ public class MyArrayListTest {
     private MyArrayList<String> myArrayListTest;
     private Iterator<String> testIterable;
     private String arrayValue;
-    private final String ADD_ITEM_START;
+    private final String ADD_ITEM_BEGIN;
     private final String ADD_ITEM_CENTER;
     private final String ADD_ITEM_END;
     private final int SIZE_ARRAY;
 
     {
         SIZE_ARRAY = 13; // like be >= 13 for test of increase capacity
-        ADD_ITEM_START = "ADD_ITEM_START";
+        ADD_ITEM_BEGIN = "ADD_ITEM_BEGIN";
         ADD_ITEM_CENTER = "ADD_ITEM_CENTER";
         ADD_ITEM_END = "ADD_ITEM_END";
         arrayValue = "Item number # ";
@@ -48,7 +48,7 @@ public class MyArrayListTest {
 
     @Test
     public void addIndexTest() throws Exception {
-        boolean resultStart = myArrayListTest.add(0, ADD_ITEM_START);
+        boolean resultStart = myArrayListTest.add(0, ADD_ITEM_BEGIN);
         boolean resultCenter = myArrayListTest.add(SIZE_ARRAY / 2, ADD_ITEM_CENTER);
         boolean resultEnd = myArrayListTest.add(SIZE_ARRAY, ADD_ITEM_END);
         assertTrue(resultStart);
@@ -63,13 +63,13 @@ public class MyArrayListTest {
 
     @Test
     public void setTest() throws Exception {
-        boolean actual = myArrayListTest.set(0, ADD_ITEM_START);
+        boolean actual = myArrayListTest.set(0, ADD_ITEM_BEGIN);
         assertTrue(actual);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void setWrongIndexTest() throws Exception {
-        myArrayListTest.set(-1, ADD_ITEM_START);
+        myArrayListTest.set(-1, ADD_ITEM_BEGIN);
     }
 
     @Test

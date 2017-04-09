@@ -34,11 +34,12 @@ public class MyLinkedList<T> implements Iterable<T> {
         if (incomeVar < 0 || incomeVar >= size)
             throw new IndexOutOfBoundsException(" Index: " + incomeVar + ", Size: " + size);
     }
+
     /**
      * This method for searching Node<T> by index.
      * Returns founded Node<T> object.
      *
-     * @param  index  of searching object
+     * @param index of searching object
      * @return Node<T> founded object
      */
     private Node<T> findNode(int index) {
@@ -50,11 +51,12 @@ public class MyLinkedList<T> implements Iterable<T> {
         }
         return node;
     }
+
     /**
      * This method for create Node<T> and adds it into the end list.
      * Returns boolean.
      *
-     * @param  element incoming value.
+     * @param element incoming value.
      * @return boolean
      */
     public boolean add(T element) {
@@ -68,13 +70,17 @@ public class MyLinkedList<T> implements Iterable<T> {
         ++size;
         return true;
     }
+
     /**
      * This method for create Node<T> and adds it into begin or middle
      * and in the end through method add();
-     * @param  index after that index adds element into the list.
-     * @param  element incoming value of adds.
+     * Returns boolean.
+     *
+     * @param index   after that index adds element into the list.
+     * @param element incoming value of adds.
+     * @return boolean
      */
-    public void add(int index, T element) {
+    public boolean add(int index, T element) {
         checkRange(index);
         if (index == 0) {
             Node<T> newNode = new MyLinkedList.Node<>(null, element, firstNode);
@@ -87,18 +93,20 @@ public class MyLinkedList<T> implements Iterable<T> {
             findNode(index).prev = newNode;
             ++size;
         } else add(element);
+        return true;
     }
 
     public T get(int index) {
         checkRange(index);
         return findNode(index).element;
     }
+
     /**
      * This method for set value into Node by index
      * and returns the value of which was before changed.
      *
-     * @param  index into that index will be adds.
-     * @param  element incoming value of set.
+     * @param index   into that index will be adds.
+     * @param element incoming value of set.
      * @return the value of which was before changed.
      */
     public T set(int index, T element) {
@@ -115,11 +123,12 @@ public class MyLinkedList<T> implements Iterable<T> {
         }
         return false;
     }
+
     /**
      * This method for remove Node by index
      * and returns the value of which will be removed.
      *
-     * @param  index that index will be removed.
+     * @param index that index will be removed.
      * @return the value of which will be removed.
      */
     public T remove(int index) {
