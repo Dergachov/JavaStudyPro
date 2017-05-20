@@ -4,16 +4,22 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Class MyArrayList
+ * Class MyArrayList.
  *
  * @version 0.2
  * @since 04.04.2017
  */
 
+/**
+ * Class MyArrayList with generic.
+ *
+ * @param <T> generics
+ */
 public class MyArrayList<T> implements Iterable<T> {
     private int size;
     private int capacity;
-    private final int DEFAULT_CAPACITY = 12;
+    private static final int DEFAULT_CAPACITY = 12;
+    private static final double INCREASE_VALUE = 1.005;
     private Object[] data;
     private Object[] temp;
 
@@ -25,32 +31,42 @@ public class MyArrayList<T> implements Iterable<T> {
         init(arraySize);
     }
 
-    //Method init(int incomeSize) check incoming size and initialization field 'data'.
+    /**
+     * Method init(int incomeSize) check incoming size and initialization field 'data'.
+     *
+     * @param incomeSize checking value.
+     */
     private void init(int incomeSize) {
-        if (incomeSize < 0)
+        if (incomeSize < 0) {
             throw new IllegalArgumentException(" Illegal Capacity: " + incomeSize);
+        }
         this.data = new Object[(incomeSize > DEFAULT_CAPACITY) ? incomeSize : DEFAULT_CAPACITY];
         this.capacity = data.length;
     }
 
     //Method checkRange(int incomeVar) check incoming index.
     private void checkRange(int incomeVar) {
-        if (incomeVar < 0 || incomeVar > size)
+        if (incomeVar < 0 || incomeVar > size) {
             throw new IndexOutOfBoundsException(" Index: " + incomeVar + ", Size: " + size);
+        }
     }
 
-    //Method increaseLength() increase array capacity of field 'data'.
+    /**
+     * Method increaseLength() increase array capacity of field 'data'.
+     */
     private void increaseLength() {
         if (capacity - size <= 1) {
             temp = data;
-            data = new Object[(int) (size * 1.005 + DEFAULT_CAPACITY)];
+            data = new Object[(int) (size * INCREASE_VALUE + DEFAULT_CAPACITY)];
             System.arraycopy(temp, 0, data, 0, temp.length);
             capacity = data.length;
             temp = null;
         }
     }
 
-    //Method decreaseLength() decrease array capacity of field 'data'.
+    /**
+     * Method decreaseLength() decrease array capacity of field 'data'.
+     */
     private void decreaseLength() {
         if (DEFAULT_CAPACITY * 2 <= capacity - size) {
             temp = data;
@@ -67,6 +83,13 @@ public class MyArrayList<T> implements Iterable<T> {
         return true;
     }
 
+    /**
+     * Method add for item with index.
+     *
+     * @param index item
+     * @param item  adds item
+     * @return boolean.
+     */
     public boolean add(int index, T item) {
         checkRange(index);
         if (index <= size - 1) {
@@ -82,9 +105,16 @@ public class MyArrayList<T> implements Iterable<T> {
         return (add(item));
     }
 
+    /**
+     * Method remove for data with index.
+     *
+     * @param index for remove item
+     * @return remove item
+     */
     public T remove(int index) {
         checkRange(index);
-        T item = (T) data[index];
+        T item;
+        item = (T) data[index];
         System.arraycopy(data, index + 1, data, index, size - index);
         data[--size] = null;
         decreaseLength();
@@ -106,9 +136,15 @@ public class MyArrayList<T> implements Iterable<T> {
         return size;
     }
 
+    /**
+     * @param o incoming Object
+     * @return boolean.
+     */
     public boolean contains(Object o) {
         for (int i = 0; i < size; i++) {
-            if (get(i).equals(o)) return true;
+            if (get(i).equals(o)) {
+                return true;
+            }
         }
         return false;
     }
@@ -118,10 +154,13 @@ public class MyArrayList<T> implements Iterable<T> {
         return new MyArrayListIterator();
     }
 
+    /**
+     * Class MyArrayListIterator.
+     */
     private class MyArrayListIterator implements Iterator<T> {
         private int cursor;
 
-        public MyArrayListIterator() {
+        MyArrayListIterator() {
             this.cursor = 0;
         }
 
@@ -132,8 +171,11 @@ public class MyArrayList<T> implements Iterable<T> {
 
         @Override
         public T next() {
-            if (this.hasNext()) return (T) data[cursor++];
-            throw new NoSuchElementException();
+            if (this.hasNext()) {
+                return (T) data[cursor++];
+            } else {
+                throw new NoSuchElementException();
+            }
         }
     }
 }
