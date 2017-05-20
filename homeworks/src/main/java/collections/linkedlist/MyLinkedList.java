@@ -3,10 +3,16 @@ package collections.linkedlist;
 import java.util.Iterator;
 
 /**
- * Class MyLinkedList
+ * Class MyLinkedList.
  *
  * @version 0.1
  * @since 08.04.2017
+ */
+
+/**
+ * Class MyLinkedList with generic.
+ *
+ * @param <T> incoming type.
  */
 public class MyLinkedList<T> implements Iterable<T> {
 
@@ -18,10 +24,15 @@ public class MyLinkedList<T> implements Iterable<T> {
         this.size = 0;
     }
 
+    /**
+     * Static nested class implements NODE.
+     *
+     * @param <T> incoming type.
+     */
     private static class Node<T> {
-        T element;
-        Node<T> next;
-        Node<T> prev;
+        private T element;
+        private Node<T> next;
+        private Node<T> prev;
 
         Node(Node<T> prev, T element, Node<T> next) {
             this.prev = prev;
@@ -31,33 +42,35 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     private void checkRange(int incomeVar) {
-        if (incomeVar < 0 || incomeVar >= size)
+        if (incomeVar < 0 || incomeVar >= size) {
             throw new IndexOutOfBoundsException(" Index: " + incomeVar + ", Size: " + size);
+        }
     }
 
     /**
-     * This method for searching Node<T> by index.
-     * Returns founded Node<T> object.
+     * This method for searching Node by index.
+     * Returns founded Node object.
      *
      * @param index of searching object
-     * @return Node<T> founded object
+     * @return Node founded object
      */
     private Node<T> findNode(int index) {
         Node<T> node = firstNode;
         for (int i = 0; node.next != null; i++) {
             if (index == i) {
                 return node;
-            } else node = node.next;
+            } else {
+                node = node.next;
+            }
         }
         return node;
     }
 
     /**
-     * This method for create Node<T> and adds it into the end list.
-     * Returns boolean.
+     * This method for create Node and adds it into the end list.
      *
      * @param element incoming value.
-     * @return boolean
+     * @return boolean.
      */
     public boolean add(T element) {
         Node<T> newNode = new MyLinkedList.Node<>(lastNode, element, null);
@@ -72,9 +85,8 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     /**
-     * This method for create Node<T> and adds it into begin or middle
-     * and in the end through method add();
-     * Returns boolean.
+     * This method for create Node.
+     * Adds it into begin or middle and in the end through method add();
      *
      * @param index   after that index adds element into the list.
      * @param element incoming value of adds.
@@ -92,7 +104,9 @@ public class MyLinkedList<T> implements Iterable<T> {
             findNode(index).prev.next = newNode;
             findNode(index).prev = newNode;
             ++size;
-        } else add(element);
+        } else {
+            add(element);
+        }
         return true;
     }
 
@@ -116,10 +130,18 @@ public class MyLinkedList<T> implements Iterable<T> {
         return temp;
     }
 
+    /**
+     * Method objects contains.
+     *
+     * @param element for equals
+     * @return boolean.
+     */
     public boolean contains(T element) {
         Iterator<T> itr = iterator();
         while (itr.hasNext()) {
-            if (itr.next().equals(element)) return true;
+            if (itr.next().equals(element)) {
+                return true;
+            }
         }
         return false;
     }
@@ -169,21 +191,28 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new linkedListIterator();
+        return new LinkedListIterator();
     }
 
-    private class linkedListIterator implements Iterator<T> {
+    /**
+     * Inner class for implements LinkedListIterator.
+     */
+    private class LinkedListIterator implements Iterator<T> {
         private Node<T> nodeItr;
 
-        public linkedListIterator() {
+        LinkedListIterator() {
             this.nodeItr = firstNode;
         }
 
         @Override
         public boolean hasNext() {
             if (nodeItr != null) {
-                if (nodeItr.next != null) return true;
-                if (nodeItr.prev.next == nodeItr) return true;
+                if (nodeItr.next != null) {
+                    return true;
+                }
+                if (nodeItr.prev.next == nodeItr) {
+                    return true;
+                }
             }
             return false;
         }
