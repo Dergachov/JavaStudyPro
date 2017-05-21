@@ -68,12 +68,12 @@ public class EmployeeCompareTo implements Comparable<EmployeeCompareTo> {
 
     @Override
     public String toString() {
-        return "EmployeeComparator{" +
-                "cardID=" + cardID +
-                ", nameFirst='" + nameFirst + '\'' +
-                ", nameLast='" + nameLast + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                '}' + "\n";
+        return "EmployeeComparator{"
+                + "cardID=" + cardID
+                + ", nameFirst='" + nameFirst + '\''
+                + ", nameLast='" + nameLast + '\''
+                + ", age=" + age
+                + ", salary=" + salary
+                + '}' + "\n";
     }
 }
