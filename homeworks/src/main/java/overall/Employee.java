@@ -3,11 +3,10 @@ package overall;
 /**
  * Created by Serezha on 2016-11-26.
  */
-public class Employee{
+public class Employee {
     private int cardID;
     private String nameFirst;
     private String nameLast;
-    //private enum Sex {MALE, FEMALE} // TODO: 2016-11-26  How to use ENUM in classes?
     private int age;
     //private enum Rank { SUPPORT, TESTER, PROJECTMANAGER, TEAMLEADER, DEVELOPER, SENIOR}
     private double salary;
@@ -62,12 +61,14 @@ public class Employee{
 
     @Override
     public String toString() {
-        return "EmployeeComparator{" +
-                "cardID=" + cardID +
-                ", nameFirst='" + nameFirst + '\'' +
-                ", nameLast='" + nameLast + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                '}' + "\n";
+        return "EmployeeComparator{"
+                + "cardID=" + cardID
+                + ", nameFirst='" + nameFirst
+                + '\''
+                + ", nameLast='" + nameLast
+                + '\''
+                + ", age=" + age
+                + ", salary=" + salary
+                + '}' + "\n";
     }
 }

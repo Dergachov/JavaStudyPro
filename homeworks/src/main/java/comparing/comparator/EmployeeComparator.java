@@ -1,4 +1,4 @@
-package collections.comparing.comparator;
+package comparing.comparator;
 
 public class EmployeeComparator {
     private int cardID;

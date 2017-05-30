@@ -16,21 +16,20 @@ public class MyLinkedListTest {
 
     private MyLinkedList<String> myLinkedListTest;
     private String linkedListValue;
-    private final int NUMBER_ELEMENTS;
-    private final String ADD_ITEM_BEGIN;
-    private final String ADD_ITEM_CENTER;
-    private final String ADD_ITEM_END;
+    private int NUMBER_ELEMENTS;
+    private String ADD_ITEM_BEGIN;
+    private String ADD_ITEM_CENTER;
+    private String ADD_ITEM_END;
 
-    {
+    @Before
+    public void before() {
+
+        linkedListValue = "Item number # ";
         NUMBER_ELEMENTS = 3;
         ADD_ITEM_BEGIN = "ADD_ITEM_BEGIN";
         ADD_ITEM_CENTER = "ADD_ITEM_CENTER";
         ADD_ITEM_END = "ADD_ITEM_END";
-        linkedListValue = "Item number # ";
-    }
 
-    @Before
-    public void before() {
         myLinkedListTest = new MyLinkedList<>();
         for (int i = 0; i < NUMBER_ELEMENTS; i++) {
             myLinkedListTest.add(linkedListValue + i);

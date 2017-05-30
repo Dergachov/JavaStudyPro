@@ -1,4 +1,4 @@
-package collections.comparing.comparable;
+package comparing.comparable;
 
 /**
  * If need using easy simple sort then then you must use implements Comparable<T>
