@@ -73,7 +73,6 @@ public class MyArrayList<T> implements Iterable<T> {
             data = new Object[size + DEFAULT_CAPACITY];
             System.arraycopy(temp, 0, data, 0, size);
             temp = null;
-            System.gc();
         }
     }
 

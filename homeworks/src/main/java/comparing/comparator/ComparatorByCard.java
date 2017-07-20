@@ -1,11 +1,12 @@
 package comparing.comparator;
 
-import java.util.Comparator;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * Created by Serezha on 2016-11-26.
  */
-public class ComparatorByCard implements Comparator<EmployeeComparator> {
+public class ComparatorByCard implements Comparator<EmployeeComparator>, Serializable {
 
     @Override
     public int compare(EmployeeComparator Object1, EmployeeComparator Object2) {
