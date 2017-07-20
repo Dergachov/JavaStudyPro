@@ -89,7 +89,7 @@ public class MyHashMap<K, V> {
                         if (itr.value == value || value.equals(itr.value)) {
                             return indexBucket;
                         }
-                        if (itr.value != value || !value.equals(itr.value)) {
+                        else {
                             itr.value = value;
                             return indexBucket;
                         }
