@@ -84,6 +84,7 @@
                     <threshold>Low</threshold>
                     <xmlOutput>true</xmlOutput>
                     <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
+                    <onlyAnalyze>collections.hashmap.*</onlyAnalyze>
                 </configuration>
                 <executions>
                     <execution>

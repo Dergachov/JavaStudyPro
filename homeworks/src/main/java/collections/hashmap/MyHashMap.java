@@ -1,28 +1,26 @@
 package collections.hashmap;
 
-/**
- * Created by serezha on 30.05.17.
- */
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * MyHashMap class.
  *
- * @param <K> key.
- * @param <V> value.
+ * @param <K> type of key.
+ * @param <V> type of value.
  */
-public class MyHashMap<K, V> {
-    private final int defaultCapacity;
-    private final double defaultLoadFactor;
+public class MyHashMap<K, V> implements Map<K, V> {
+    private static final int DEFAULT_CAPACITY = 16;
+    private static final double DEFAULT_LOAD_FACTOR = 0.75;
     private int capacity;
     private int size;
     private Node[] buckets;
-    private Node[] reHashBuckets;
 
     /**
-     * This is inner class Node with generics.
+     * Class 'Node' for storage objects in the buckets.
      *
-     * @param <K> key.
-     * @param <V> value.
+     * @param <K> type of key.
+     * @param <V> type of value.
      */
     static class Node<K, V> {
         private final int hash;
@@ -39,66 +37,69 @@ public class MyHashMap<K, V> {
     }
 
     public MyHashMap() {
-        this.defaultCapacity = 16;
-        this.defaultLoadFactor = 0.75;
-        initial();
-    }
-
-    public MyHashMap(int capacity, double loadFactor) {
-        this.defaultCapacity = capacity;
-        this.defaultLoadFactor = loadFactor;
         initial();
     }
 
     /**
-     * This is method for initial array of buckets.
+     * Method for default initial array of buckets.
      */
     private void initial() {
-        if (defaultCapacity > 0) {
-            buckets = new Node[defaultCapacity];
-            this.capacity = defaultCapacity;
-            this.size = 0;
-        } else {
-            throw new IndexOutOfBoundsException("Bad capacity: " + this.capacity);
+        buckets = new Node[DEFAULT_CAPACITY];
+        this.capacity = DEFAULT_CAPACITY;
+        this.size = 0;
+    }
+
+    private void checkForNull(Object object) {
+        if (object == null) {
+            throw new NullPointerException();
         }
     }
 
     /**
-     * This is method for increase array of buckets.
+     * Method for calc threshold.
+     *
+     * @return threshold.
+     */
+    private int threshold() {
+        return (int) (this.capacity * DEFAULT_LOAD_FACTOR);
+    }
+
+    /**
+     * Method for increase array of buckets.
      */
     private void resize() {
-        reHashBuckets = new Node[capacity + (int) (capacity * defaultLoadFactor)];
+        Node[] reHashBuckets = new Node[capacity + threshold()];
         for (int indexBucket = 0; indexBucket < capacity; indexBucket++) {
             if (buckets[indexBucket] == null) {
                 continue;
             }
-            rehash(buckets[indexBucket]);
+            rehash(reHashBuckets, buckets[indexBucket]);
             if (buckets[indexBucket].next != null) {
                 for (Node lowerNode = buckets[indexBucket].next; lowerNode != null; lowerNode = lowerNode.next) {
-                    rehash(lowerNode);
+                    rehash(reHashBuckets, lowerNode);
                 }
             }
         }
-        capacity += (int) (capacity * defaultLoadFactor);
+        capacity += threshold();
         buckets = new Node[capacity];
-        buckets = reHashBuckets;
-        reHashBuckets = null;
+        System.arraycopy(reHashBuckets, 0, buckets, 0, buckets.length);
     }
 
     /**
-     * This method for rehash Nodes.
+     * Method for rehash Nodes.
      *
-     * @param node incoming for rehashing.
+     * @param reHashBuckets incoming temp array of Nodes with new rehash objects.
+     * @param rehashNode    incoming Node for rehash.
      */
-    private void rehash(Node node) {
-        int reHashCapacity = capacity + (int) (capacity * defaultLoadFactor);
-        int numberBucket = node.key.hashCode() % reHashCapacity;
+    private void rehash(Node[] reHashBuckets, Node rehashNode) {
+        int reHashCapacity = capacity + threshold();
+        int numberBucket = rehashNode.key.hashCode() & (reHashCapacity - 1);
         if (reHashBuckets[numberBucket] == null) {
-            reHashBuckets[numberBucket] = new Node<>(node.hash, node.key, node.value, null);
+            reHashBuckets[numberBucket] = new Node<>(rehashNode.hash, rehashNode.key, rehashNode.value, null);
         } else {
             for (Node lowerNode = reHashBuckets[numberBucket]; lowerNode != null; lowerNode = lowerNode.next) {
                 if (lowerNode.next == null) {
-                    lowerNode.next = new Node<>(node.hash, node.key, node.value, null);
+                    lowerNode.next = new Node<>(rehashNode.hash, rehashNode.key, rehashNode.value, null);
                     break;
                 }
             }
@@ -106,52 +107,15 @@ public class MyHashMap<K, V> {
     }
 
     /**
-     * Method for put data to buckets.
-     *
-     * @param key   data.
-     * @param value data.
-     * @return null or value if incoming key exist in the buckets.
-     */
-    public V put(K key, V value) {
-        if (size >= capacity * defaultLoadFactor) {
-            resize();
-        }
-        // Create 'Node'
-        int indexBucket = key.hashCode() % capacity;
-        // Check for issue collision in that bucket
-        if (buckets[indexBucket] != null) {
-            // Make collision in the end of bucket lis
-            for (Node<K, V> lowerNode = buckets[indexBucket]; lowerNode != null; lowerNode = lowerNode.next) {
-                // Check exist key an return old value
-                if (lowerNode.hash == key.hashCode() && (lowerNode.key == key || key.equals(lowerNode.key))) {
-                    V oldValue = lowerNode.value;
-                    lowerNode.value = value;
-                    return oldValue;
-                }
-                // if not exist key in buckets
-                if (lowerNode.next == null) {
-                    lowerNode.next = new Node<>(key.hashCode(), key, value, null);
-                    ++size;
-                    return null;
-                }
-            }
-        } else {
-            // Put 'Node' in the empty bucket
-            buckets[indexBucket] = new Node<>(key.hashCode(), key, value, null);
-            ++size;
-            return null;
-        }
-        return null;
-    }
-
-    /**
      * Method for get data from buckets.
      *
      * @param key which for search value data.
-     * @return value if exist else return 'null'.
+     * @return object if exist else return 'null'.
      */
-    public V get(K key) {
-        for (Node<K, V> itr = buckets[key.hashCode() % capacity]; itr != null; itr = itr.next) {
+    @Override
+    public V get(Object key) {
+        int indexBucket = key.hashCode() & (capacity - 1);
+        for (Node<K, V> itr = buckets[indexBucket]; itr != null; itr = itr.next) {
             if (itr.hash == key.hashCode() && (itr.key == key || key.equals(itr.key))) {
                 return itr.value;
             }
@@ -160,30 +124,69 @@ public class MyHashMap<K, V> {
     }
 
     /**
-     * This is remove methods.
+     * Method for put objects to buckets.
+     *
+     * @param key   object.
+     * @param value object.
+     * @return 'null' or object if incoming key object exist in the buckets.
+     */
+    @Override
+    public V put(K key, V value) {
+        if (size >= threshold()) {
+            resize();
+        }
+        // Create 'Node'
+        int indexBucket = key.hashCode() & (capacity - 1);
+        // Check for issue collision in that bucket.
+        if (buckets[indexBucket] != null) {
+            // Make collision in the end of bucket list.
+            for (Node<K, V> lowerNode = buckets[indexBucket]; lowerNode != null; lowerNode = lowerNode.next) {
+                // Check exist 'key' object and return an old object 'value'.
+                if (lowerNode.hash == key.hashCode() && (lowerNode.key == key || key.equals(lowerNode.key))) {
+                    V oldValue = lowerNode.value;
+                    lowerNode.value = value;
+                    return oldValue;
+                }
+                // If not exist 'key' object in the buckets.
+                if (lowerNode.next == null) {
+                    lowerNode.next = new Node<>(key.hashCode(), key, value, null);
+                    ++size;
+                    return null;
+                }
+            }
+        } else {
+            // Put 'Node' object in the empty bucket
+            buckets[indexBucket] = new Node<>(key.hashCode(), key, value, null);
+            ++size;
+            return null;
+        }
+        return null;
+    }
+
+    /**
+     * Remove method.
      *
      * @param key is value which will be delete.
-     * @return deleted value
+     * @return deleting object
      */
-    public V remove(K key) {
-        Node<K, V> previous = null;
-        int indexBucket = key.hashCode() % capacity;
+    @Override
+    public V remove(Object key) {
+        Node previous = null;
+        int indexBucket = key.hashCode() & (capacity - 1);
         for (Node<K, V> iterator = buckets[indexBucket]; iterator != null; iterator = iterator.next) {
             if (iterator.hash == key.hashCode() && (iterator.key == key || key.equals(iterator.key))) {
+                --size;
                 //For begin of collision
                 if (previous == null) {
                     buckets[indexBucket] = iterator.next;
-                    --size;
                     return iterator.value;
                 }
                 //For middle and end of collision
                 if (iterator.next != null) {
                     previous.next = iterator.next;
-                    --size;
                     return iterator.value;
                 } else {
                     previous.next = null;
-                    --size;
                     return iterator.value;
                 }
             }
@@ -192,15 +195,99 @@ public class MyHashMap<K, V> {
         return null;
     }
 
-    public boolean isEmpty() {
-        return size >= 0 ? false : true;
+    @Override
+    public void clear() {
+        if (buckets != null && size > 0) {
+            for (int indexBucket = 0; indexBucket < buckets.length; ++indexBucket) {
+                buckets[indexBucket] = null;
+            }
+            size = 0;
+        }
     }
 
-    public void clear() {
-        initial();
+    @Override
+    public boolean containsKey(Object key) {
+        checkForNull(key);
+        if (isEmpty()) {
+            return false;
+        }
+        int indexBucket = key.hashCode() & (capacity - 1);
+        for (Node itr = buckets[indexBucket]; itr != null; itr = itr.next) {
+            if (itr.hash == key.hashCode() && (itr.key == key || key.equals(itr.key))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean containsValue(Object value) {
+        checkForNull(value);
+        if (isEmpty()) {
+            return false;
+        }
+        for (int indexBucket = 0; indexBucket < buckets.length; ++indexBucket) {
+            if (buckets[indexBucket] == null) {
+                continue;
+            }
+            if (buckets[indexBucket].value == value || buckets[indexBucket].value.equals(value)) {
+                return true;
+            }
+            if (buckets[indexBucket].next != null) {
+                for (Node lowerNode = buckets[indexBucket].next; lowerNode != null; lowerNode = lowerNode.next) {
+                    if (lowerNode.value.equals(value)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size <= 0;
     }
 
     public int size() {
-        return size;
+        return this.size;
     }
+
+    /*
+
+        There are while not implemented methods.
+
+     */
+
+    // Need implements class with extends abstract class AbstractCollection<V>
+    @Override
+    public Collection<V> values() {
+        return null;
+    }
+
+    // Need implements class with extends abstract class AbstractSet<K>
+    @Override
+    public Set keySet() {
+        return null;
+    }
+
+    @Override
+    public Set<Entry<K, V>> entrySet() {
+        return null;
+    }
+
+    @Override
+    public void putAll(Map map) {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o.hashCode() > 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }
