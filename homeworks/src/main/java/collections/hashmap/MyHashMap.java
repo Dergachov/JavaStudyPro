@@ -1,6 +1,5 @@
 package collections.hashmap;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -245,6 +244,12 @@ public class MyHashMap<K, V> implements Map<K, V> {
     }
 
     @Override
+    public Collection<V> values() {
+        Object collection = new CollectionValues();
+        return (Collection) collection;
+    }
+
+    @Override
     public boolean isEmpty() {
         return size <= 0;
     }
@@ -254,18 +259,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
     }
 
     /*
-
         There are while not implemented methods.
-
+        Need implements class with extends abstract class AbstractSet<K>.
      */
 
-    // Need implements class with extends abstract class AbstractCollection<V>
-    @Override
-    public Collection<V> values() {
-        return null;
-    }
-
-    // Need implements class with extends abstract class AbstractSet<K>
     @Override
     public Set keySet() {
         return null;
@@ -280,14 +277,96 @@ public class MyHashMap<K, V> implements Map<K, V> {
     public void putAll(Map map) {
     }
 
-    @Override
-    public boolean equals(Object o) {
-        return o.hashCode() > 0;
+    /**
+     * Class CollectionValues for method MyHashMap.Collection<V> values().
+     */
+    private class CollectionValues extends AbstractCollection {
+        CollectionValues() {
+        }
+
+        public Iterator<V> iterator() {
+            return new ValueIterator();
+        }
+
+        public boolean isEmpty() {
+            return MyHashMap.this.isEmpty();
+        }
+
+        public boolean contains(Object value) {
+            return MyHashMap.this.containsValue(value);
+        }
+
+        public final void clear() {
+            MyHashMap.this.clear();
+        }
+
+        public int size() {
+            return MyHashMap.this.size;
+        }
     }
 
-    @Override
-    public int hashCode() {
-        return 0;
-    }
+    /**
+     * Class ValueIterator implements Iterator<V> for class CollectionValues.
+     */
+    private class ValueIterator implements Iterator<V> {
+        private MyHashMap.Node[] nodes;
+        private MyHashMap.Node nextNode;
+        private MyHashMap.Node currentNode;
+        private V value;
+        private int size;
+        private int counter;
+        private int indexBucket;
 
+        ValueIterator() {
+            this.nodes = MyHashMap.this.buckets;
+            this.size = MyHashMap.this.size;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return this.counter != this.size;
+        }
+
+        @Override
+        public V next() {
+            if (this.hasNext()) {
+                if (nextNode != null) {
+                    currentNode = nextNode;
+                    value = (V) nextNode.value;
+                    if (nextNode.next != null) {
+                        nextNode = nextNode.next;
+                    } else {
+                        nextNode = null;
+                        ++indexBucket;
+                    }
+                    ++counter;
+                    return value;
+                }
+                for (int loopIndex = indexBucket; loopIndex < nodes.length && nextNode == null; loopIndex++) {
+                    if (nodes[loopIndex] == null) {
+                        continue;
+                    }
+                    indexBucket = loopIndex;
+                    if (nodes[loopIndex].next != null) {
+                        nextNode = nodes[loopIndex].next;
+                    } else {
+                        nextNode = null;
+                        ++indexBucket;
+                    }
+                    ++counter;
+                    currentNode = nodes[loopIndex];
+                    value = (V) nodes[loopIndex].value;
+                }
+                return value;
+            } else {
+                throw new NoSuchElementException();
+            }
+        }
+
+        @Override
+        public void remove() {
+            MyHashMap.this.remove(currentNode.key);
+        }
+    }
+    //End of class MyHashMap.
 }

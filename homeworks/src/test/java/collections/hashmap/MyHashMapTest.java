@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  */
 public class MyHashMapTest {
     private Map<Integer, String> map = new HashMap<>();
-    private int numberOfAdds = 40;
+    private int numberOfAdds = 80;
     private String valueOfAdds = "String";
 
     @Before
@@ -24,8 +24,8 @@ public class MyHashMapTest {
 
     @Test
     public void putWithoutExistKeyTest() throws Exception {
-        int keyPut = 50;
-        String valuePut = "Test string with key 50";
+        int keyPut = 1000;
+        String valuePut = "Test string with key 1000";
         assertEquals(map.put(keyPut, valuePut), null);
 
         //Should be change size.
@@ -101,9 +101,10 @@ public class MyHashMapTest {
         Collection<String> values = map.values();
         Iterator<String> iterator = values.iterator();
 
-        for (int numberKey = 0; iterator.hasNext(); numberKey++) {
+        while (iterator.hasNext()) {
             String next = iterator.next();
-            assertEquals(next, valueOfAdds + numberKey);
+            assertTrue(map.containsValue(next));
+            iterator.remove();
         }
     }
 

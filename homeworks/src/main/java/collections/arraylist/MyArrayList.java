@@ -40,7 +40,14 @@ public class MyArrayList<T> implements Iterable<T> {
         if (incomeSize < 0) {
             throw new IllegalArgumentException(" Illegal Capacity: " + incomeSize);
         }
-        this.data = new Object[(incomeSize > DEFAULT_CAPACITY) ? incomeSize : DEFAULT_CAPACITY];
+        int initSize;
+        if (incomeSize > DEFAULT_CAPACITY) {
+            initSize = incomeSize;
+        }
+        else{
+            initSize = DEFAULT_CAPACITY;
+        }
+        this.data = new Object[initSize];
         this.capacity = data.length;
     }
 
@@ -101,7 +108,8 @@ public class MyArrayList<T> implements Iterable<T> {
             temp = null;
             return true;
         }
-        return (add(item));
+        add(item);
+        return true;
     }
 
     /**
