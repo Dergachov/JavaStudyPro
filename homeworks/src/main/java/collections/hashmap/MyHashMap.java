@@ -14,6 +14,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
     private int capacity;
     private int size;
     private Node[] buckets;
+    private Set<Entry<K, V>> entrySet;
 
     /**
      * Class 'Node' for storage objects in the buckets.
@@ -21,7 +22,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
      * @param <K> type of key.
      * @param <V> type of value.
      */
-    static class Node<K, V> {
+    static class Node<K, V> implements Entry<K, V> {
         private final int hash;
         private final K key;
         private V value;
@@ -32,6 +33,23 @@ public class MyHashMap<K, V> implements Map<K, V> {
             this.key = key;
             this.value = value;
             this.next = next;
+        }
+
+        @Override
+        public K getKey() {
+            return this.key;
+        }
+
+        @Override
+        public V getValue() {
+            return this.value;
+        }
+
+        @Override
+        public V setValue(V v) {
+            V oldValue = this.value;
+            this.value = v;
+            return oldValue;
         }
     }
 
@@ -46,6 +64,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
         buckets = new Node[DEFAULT_CAPACITY];
         this.capacity = DEFAULT_CAPACITY;
         this.size = 0;
+        this.entrySet = null;
     }
 
     private void checkForNull(Object object) {
@@ -250,6 +269,16 @@ public class MyHashMap<K, V> implements Map<K, V> {
     }
 
     @Override
+    public Set<Entry<K, V>> entrySet() {
+        if (this.entrySet != null) {
+            return this.entrySet;
+        } else {
+            this.entrySet = new EntrySet();
+            return this.entrySet;
+        }
+    }
+
+    @Override
     public boolean isEmpty() {
         return size <= 0;
     }
@@ -265,11 +294,6 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     @Override
     public Set keySet() {
-        return null;
-    }
-
-    @Override
-    public Set<Entry<K, V>> entrySet() {
         return null;
     }
 
@@ -366,6 +390,80 @@ public class MyHashMap<K, V> implements Map<K, V> {
         @Override
         public void remove() {
             MyHashMap.this.remove(currentNode.key);
+        }
+    }
+
+    /**
+     * Class EntrySet for method MyHashMap.Set<Entry<K, V>> entrySet().
+     */
+    private class EntrySet extends AbstractSet<Entry<K, V>> {
+
+        @Override
+        public Iterator<Entry<K, V>> iterator() {
+            return new EntryIterator();
+        }
+
+        @Override
+        public int size() {
+            return MyHashMap.this.size;
+        }
+    }
+
+    /**
+     * Class EntryIterator implements Iterator<Entry<K,V>> for class EntrySet.
+     */
+    private class EntryIterator implements Iterator<Entry<K, V>> {
+        private MyHashMap.Node<K, V> currentNode;
+        private MyHashMap.Node<K, V> next;
+        private MyHashMap.Node[] nodes;
+        private int nextIndexNode;
+        private int counterNodes;
+
+        EntryIterator() {
+            this.nodes = MyHashMap.this.buckets;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return counterNodes != MyHashMap.this.size;
+        }
+
+        @Override
+        public Entry<K, V> next() {
+            if (hasNext()) {
+                if (next != null) {
+                    ++counterNodes;
+                    currentNode = next;
+                    if (next.next != null) {
+                        next = next.next;
+                    } else {
+                        next = null;
+                    }
+                    return currentNode;
+                }
+                for (int indexNode = nextIndexNode; indexNode < nodes.length; indexNode++) {
+                    if (nodes[indexNode] == null) {
+                        continue;
+                    } else {
+                        if (nodes[indexNode].next != null) {
+                            next = nodes[indexNode].next;
+                        }
+                        currentNode = nodes[indexNode];
+                        nextIndexNode = ++indexNode;
+                        ++counterNodes;
+                        return currentNode;
+                    }
+                }
+                return currentNode;
+            } else {
+                throw new NoSuchElementException();
+            }
+        }
+
+        @Override
+        public void remove() {
+            MyHashMap.this.remove(currentNode.key);
+            --this.counterNodes;
         }
     }
     //End of class MyHashMap.

@@ -113,10 +113,11 @@ public class MyHashMapTest {
         Set<Map.Entry<Integer, String>> entries = map.entrySet();
         Iterator<Map.Entry<Integer, String>> iterator = entries.iterator();
 
-        for (int numberKey = 0; iterator.hasNext(); numberKey++) {
+        while (iterator.hasNext()) {
             Map.Entry<Integer, String> next = iterator.next();
-            assertTrue(next.getKey().equals(numberKey));
-            assertTrue(next.getValue().equals(valueOfAdds + numberKey));
+            assertTrue(map.containsKey(next.getKey()));
+            assertTrue(map.containsValue(next.getValue()));
+            iterator.remove();
         }
     }
 
