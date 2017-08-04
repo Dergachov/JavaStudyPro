@@ -285,8 +285,19 @@ public class MyHashMap<K, V> implements Map<K, V> {
         return new KeySet();
     }
 
+    /**
+     * My implementation is different from JDK 1.7
+     * If key from income 'map' is different from current MAP:
+     * Will add to the current MAP with the key that is not in it.
+     */
     @Override
-    public void putAll(Map map) {
+    public void putAll(Map<? extends K, ? extends V> map) {
+        if (map.size() > 0) {
+            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+                K entryKey = entry.getKey();
+                MyHashMap.this.put(entryKey, map.get(entryKey));
+            }
+        }
     }
 
     @Override
@@ -297,7 +308,6 @@ public class MyHashMap<K, V> implements Map<K, V> {
     public int size() {
         return this.size;
     }
-
 
     /**
      * Class EntrySet for method MyHashMap.Set<Entry<K, V>> entrySet().

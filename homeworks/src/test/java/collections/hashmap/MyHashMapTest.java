@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
  * Created by serezha on 21.07.17.
  */
 public class MyHashMapTest {
-    private Map<Integer, String> map = new HashMap<>();
+    private Map<Integer, String> map = new MyHashMap<>();
     private int numberOfAdds = 80;
     private String valueOfAdds = "String";
 
@@ -39,6 +39,7 @@ public class MyHashMapTest {
         int keyPut = 1;
         String valuePut = "Test string with key 1";
         String expectedValue = "String1";
+
         assertEquals(map.put(keyPut, valuePut), expectedValue);
 
         //Should be no change size.
@@ -86,7 +87,7 @@ public class MyHashMapTest {
 
     @Test
     public void putAllTest() throws Exception {
-        int keyExpectedValue = 0;
+        int keyExpectedValue = 1;
         String expectedValue = "Changed value with key 0";
 
         HashMap<Integer, String> map2 = new HashMap<>();
@@ -103,8 +104,12 @@ public class MyHashMapTest {
 
         while (iterator.hasNext()) {
             String next = iterator.next();
+
             assertTrue(map.containsValue(next));
+
             iterator.remove();
+
+            assertFalse(map.containsValue(next));
         }
     }
 
@@ -115,9 +120,14 @@ public class MyHashMapTest {
 
         while (iterator.hasNext()) {
             Map.Entry<Integer, String> next = iterator.next();
+
             assertTrue(map.containsKey(next.getKey()));
             assertTrue(map.containsValue(next.getValue()));
+
             iterator.remove();
+
+            assertFalse(map.containsKey(next.getKey()));
+            assertFalse(map.containsValue(next.getValue()));
         }
     }
 
@@ -150,5 +160,4 @@ public class MyHashMapTest {
         int currentSize = map.size();
         assertEquals(currentSize, numberOfAdds);
     }
-
 }
