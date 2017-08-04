@@ -73,6 +73,12 @@ public class MyHashMap<K, V> implements Map<K, V> {
         }
     }
 
+    private void initialEntrySet() {
+        if (this.entrySet == null) {
+            this.entrySet = new EntrySet();
+        }
+    }
+
     /**
      * Method for calc threshold.
      *
@@ -270,12 +276,17 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     @Override
     public Set<Entry<K, V>> entrySet() {
-        if (this.entrySet != null) {
-            return this.entrySet;
-        } else {
-            this.entrySet = new EntrySet();
-            return this.entrySet;
-        }
+        initialEntrySet();
+        return this.entrySet;
+    }
+
+    @Override
+    public Set keySet() {
+        return new KeySet();
+    }
+
+    @Override
+    public void putAll(Map map) {
     }
 
     @Override
@@ -287,111 +298,6 @@ public class MyHashMap<K, V> implements Map<K, V> {
         return this.size;
     }
 
-    /*
-        There are while not implemented methods.
-        Need implements class with extends abstract class AbstractSet<K>.
-     */
-
-    @Override
-    public Set keySet() {
-        return null;
-    }
-
-    @Override
-    public void putAll(Map map) {
-    }
-
-    /**
-     * Class CollectionValues for method MyHashMap.Collection<V> values().
-     */
-    private class CollectionValues extends AbstractCollection {
-        CollectionValues() {
-        }
-
-        public Iterator<V> iterator() {
-            return new ValueIterator();
-        }
-
-        public boolean isEmpty() {
-            return MyHashMap.this.isEmpty();
-        }
-
-        public boolean contains(Object value) {
-            return MyHashMap.this.containsValue(value);
-        }
-
-        public final void clear() {
-            MyHashMap.this.clear();
-        }
-
-        public int size() {
-            return MyHashMap.this.size;
-        }
-    }
-
-    /**
-     * Class ValueIterator implements Iterator<V> for class CollectionValues.
-     */
-    private class ValueIterator implements Iterator<V> {
-        private MyHashMap.Node[] nodes;
-        private MyHashMap.Node nextNode;
-        private MyHashMap.Node currentNode;
-        private V value;
-        private int size;
-        private int counter;
-        private int indexBucket;
-
-        ValueIterator() {
-            this.nodes = MyHashMap.this.buckets;
-            this.size = MyHashMap.this.size;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return this.counter != this.size;
-        }
-
-        @Override
-        public V next() {
-            if (this.hasNext()) {
-                if (nextNode != null) {
-                    currentNode = nextNode;
-                    value = (V) nextNode.value;
-                    if (nextNode.next != null) {
-                        nextNode = nextNode.next;
-                    } else {
-                        nextNode = null;
-                        ++indexBucket;
-                    }
-                    ++counter;
-                    return value;
-                }
-                for (int loopIndex = indexBucket; loopIndex < nodes.length && nextNode == null; loopIndex++) {
-                    if (nodes[loopIndex] == null) {
-                        continue;
-                    }
-                    indexBucket = loopIndex;
-                    if (nodes[loopIndex].next != null) {
-                        nextNode = nodes[loopIndex].next;
-                    } else {
-                        nextNode = null;
-                        ++indexBucket;
-                    }
-                    ++counter;
-                    currentNode = nodes[loopIndex];
-                    value = (V) nodes[loopIndex].value;
-                }
-                return value;
-            } else {
-                throw new NoSuchElementException();
-            }
-        }
-
-        @Override
-        public void remove() {
-            MyHashMap.this.remove(currentNode.key);
-        }
-    }
 
     /**
      * Class EntrySet for method MyHashMap.Set<Entry<K, V>> entrySet().
@@ -466,5 +372,107 @@ public class MyHashMap<K, V> implements Map<K, V> {
             --this.counterNodes;
         }
     }
-    //End of class MyHashMap.
+
+    /**
+     * Class KeySet for method MyHashMap.keySet().
+     */
+    private class KeySet extends AbstractSet<K> {
+
+        @Override
+        public Iterator<K> iterator() {
+            return new KeySetIterator();
+        }
+
+        @Override
+        public int size() {
+            return MyHashMap.this.size;
+        }
+    }
+
+    /**
+     * Class KeySetIterator implements Iterator<K> for class KeySet.
+     */
+    private class KeySetIterator implements Iterator<K> {
+        private Iterator iteratorEntries;
+
+        KeySetIterator() {
+            MyHashMap.this.initialEntrySet();
+            iteratorEntries = MyHashMap.this.entrySet.iterator();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return iteratorEntries.hasNext();
+        }
+
+        @Override
+        public K next() {
+            Object value = iteratorEntries.next();
+            Node node = (Node) value;
+            return (K) node.getKey();
+        }
+
+        @Override
+        public void remove() {
+            iteratorEntries.remove();
+        }
+    }
+
+    /**
+     * Class CollectionValues for method MyHashMap.Collection<V> values().
+     */
+    private class CollectionValues extends AbstractCollection {
+        CollectionValues() {
+        }
+
+        public Iterator<V> iterator() {
+            return new ValueIterator();
+        }
+
+        public boolean isEmpty() {
+            return MyHashMap.this.isEmpty();
+        }
+
+        public boolean contains(Object value) {
+            return MyHashMap.this.containsValue(value);
+        }
+
+        public final void clear() {
+            MyHashMap.this.clear();
+        }
+
+        public int size() {
+            return MyHashMap.this.size;
+        }
+    }
+
+    /**
+     * Class ValueIterator implements Iterator<V> for class CollectionValues.
+     */
+    private class ValueIterator implements Iterator<V> {
+        private Iterator iteratorEntries;
+
+        ValueIterator() {
+            MyHashMap.this.initialEntrySet();
+            iteratorEntries = MyHashMap.this.entrySet.iterator();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return iteratorEntries.hasNext();
+        }
+
+        @Override
+        public V next() {
+            Object value = iteratorEntries.next();
+            Node node = (Node) value;
+            return (V) node.getValue();
+        }
+
+        @Override
+        public void remove() {
+            iteratorEntries.remove();
+        }
+    }
 }
+//End of class MyHashMap.

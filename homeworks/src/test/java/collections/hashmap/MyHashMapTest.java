@@ -126,9 +126,11 @@ public class MyHashMapTest {
         Set<Integer> entries = map.keySet();
         Iterator<Integer> iterator = entries.iterator();
 
-        for (int numberKey = 0; iterator.hasNext(); numberKey++) {
-            int next = iterator.next();
-            assertEquals(next, numberKey);
+        while (iterator.hasNext()) {
+            int getKey = iterator.next();
+            assertTrue(map.containsKey(getKey));
+            iterator.remove();
+            assertFalse(map.containsKey(getKey));
         }
     }
 
