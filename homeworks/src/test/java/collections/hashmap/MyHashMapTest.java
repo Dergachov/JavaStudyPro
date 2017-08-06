@@ -8,9 +8,10 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 /**
- * Created by serezha on 21.07.17.
+ * Test class for class MyHashMap.
  */
 public class MyHashMapTest {
+
     private Map<Integer, String> map = new MyHashMap<>();
     private int numberOfAdds = 80;
     private String valueOfAdds = "String";
@@ -88,7 +89,7 @@ public class MyHashMapTest {
     @Test
     public void putAllTest() throws Exception {
         int keyExpectedValue = 1;
-        String expectedValue = "Changed value with key 0";
+        String expectedValue = "Changed value with key 1";
 
         HashMap<Integer, String> map2 = new HashMap<>();
         map2.put(keyExpectedValue, expectedValue);

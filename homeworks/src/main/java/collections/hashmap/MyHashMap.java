@@ -35,6 +35,10 @@ public class MyHashMap<K, V> implements Map<K, V> {
             this.next = next;
         }
 
+        public int getHashCode() {
+            return this.hash;
+        }
+
         @Override
         public K getKey() {
             return this.key;
@@ -292,6 +296,7 @@ public class MyHashMap<K, V> implements Map<K, V> {
      */
     @Override
     public void putAll(Map<? extends K, ? extends V> map) {
+        checkForNull(map);
         if (map.size() > 0) {
             for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
                 K entryKey = entry.getKey();
@@ -307,6 +312,46 @@ public class MyHashMap<K, V> implements Map<K, V> {
 
     public int size() {
         return this.size;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof MyHashMap)) {
+            return false;
+        }
+        MyHashMap<K, V> objectCast = (MyHashMap<K, V>) object;
+        if (size != objectCast.size) {
+            return false;
+        } else {
+            boolean key, value;
+            for (Map.Entry<K, V> entry : objectCast.entrySet()) {
+                key = this.containsKey(entry.getKey());
+                value = this.containsValue(entry.getValue());
+                if (key & value) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 0;
+        if (this.size > 0) {
+            for (Map.Entry<K, V> entry : entrySet()) {
+                result += entry.hashCode();
+            }
+        }
+        return result;
     }
 
     /**
