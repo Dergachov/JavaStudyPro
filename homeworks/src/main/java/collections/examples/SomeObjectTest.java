@@ -1,10 +1,10 @@
 package collections.examples;
 
-public class QueueTest implements Comparable<QueueTest> {
+public class SomeObjectTest implements Comparable<SomeObjectTest> {
     private String name;
     private int age;
 
-    public QueueTest(String name, int age) {
+    public SomeObjectTest(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -33,9 +33,8 @@ public class QueueTest implements Comparable<QueueTest> {
                 '}';
     }
 
-    //Will sort by name in queue
     @Override
-    public int compareTo(QueueTest value) {
-        return this.name.compareTo(value.getName());
+    public int compareTo(SomeObjectTest value) {
+        return this.age - value.getAge();
     }
 }

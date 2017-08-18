@@ -1,27 +1,27 @@
 package collections.examples.queue;
 
-import collections.examples.QueueTest;
+import collections.examples.SomeObjectTest;
 
 import java.util.ArrayDeque;
 
-public class ArrayDequeTest {
+public class ArrayDequeDemo {
     public static void main(String[] args) {
-        QueueTest david = new QueueTest("David", 20);
-        QueueTest anna = new QueueTest("Anna", 22);
-        QueueTest olga = new QueueTest("Olga", 24);
+        SomeObjectTest david = new SomeObjectTest("David", 20);
+        SomeObjectTest anna = new SomeObjectTest("Anna", 22);
+        SomeObjectTest olga = new SomeObjectTest("Olga", 24);
 
-        ArrayDeque<QueueTest> arrayDeque = new ArrayDeque<>();
+        ArrayDeque<SomeObjectTest> arrayDeque = new ArrayDeque<>();
         arrayDeque.addFirst(david);
         arrayDeque.addFirst(anna);
         arrayDeque.addLast(olga);
         System.out.println("Adds elements\n" + arrayDeque);
 
         //Add element in the HEAD queue
-        arrayDeque.offerFirst(new QueueTest("Alena", 30));
+        arrayDeque.offerFirst(new SomeObjectTest("Alena", 30));
         System.out.println("\nAdd element in the HEAD\n" + arrayDeque);
 
         //Add element in the end queue
-        arrayDeque.offerLast(new QueueTest("Nikolas", 28));
+        arrayDeque.offerLast(new SomeObjectTest("Nikolas", 28));
         System.out.println("\nAdds elements\n" + arrayDeque);
 
         arrayDeque.removeFirst();
