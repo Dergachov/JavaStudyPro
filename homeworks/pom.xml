@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>homeworks</artifactId>
-
     <distributionManagement>
         <repository>
             <uniqueVersion>false</uniqueVersion>
@@ -25,5 +24,14 @@
             <url>sftp://propellers.net/maven</url>
             <layout>legacy</layout>
         </snapshotRepository>
+        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
     </distributionManagement>
+    <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+    <dependencies>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.10.3</version>
+        </dependency>
+    </dependencies>
 </project>
