@@ -23,13 +23,9 @@ public class FWords {
     }
 
     private void readAndSplit() {
-        File file;
-        FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
-        try {
-            file = new File(pathToFile);
-            fileReader = new FileReader(file);
-            bufferedReader = new BufferedReader(fileReader);
+        File file = new File(pathToFile);
+        try(FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader)) {
             //All files .srt have two lines in the begin (number and timing line)
             //Ok, lets start from line 3
             bufferedReader.readLine();
@@ -54,23 +50,12 @@ public class FWords {
             sortWords();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (fileReader != null) {
-                    fileReader.close();
-                }
-                if (bufferedReader != null) {
-                    bufferedReader.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
     private void addWords(String[] splitWords) {
         for (int index = 0; index < splitWords.length; index++) {
-            if (!splitWords[index].equals("")) {
+            if (!splitWords[index].isEmpty()) {
                 if (words.containsKey(splitWords[index])) {
                     words.put(splitWords[index], words.get(splitWords[index]) + 1);
                 } else {
@@ -153,7 +138,7 @@ public class FWords {
                 '}';
     }
 
-    private class ComparatorByValue implements Comparator {
+    private class ComparatorByValue implements Comparator<String> {
         private TreeMap<String, Integer> unsortedMap;
 
         private ComparatorByValue(TreeMap<String, Integer> unsortedMap) {
@@ -161,7 +146,7 @@ public class FWords {
         }
 
         @Override
-        public int compare(Object o1, Object o2) {
+        public int compare(String o1, String o2) {
             int value1 = this.unsortedMap.get(o1);
             int value2 = this.unsortedMap.get(o2);
             if (value1 < value2) {
