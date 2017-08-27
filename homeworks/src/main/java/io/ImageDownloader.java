@@ -12,13 +12,11 @@ import java.util.TreeSet;
 public class ImageDownloader {
     private String inputURL;
     private String outputPath;
-    private TreeSet<String> links;
     private final static int MAX_FILENAME_LENGTH = 100;
 
     public ImageDownloader(String fromURL, String absolutePathToSave) throws IOException {
         this.inputURL = fromURL;
         this.outputPath = absolutePathToSave;
-        this.links = new TreeSet<>();
         validPath(this.outputPath);
     }
 
@@ -39,13 +37,13 @@ public class ImageDownloader {
         }
     }
 
-    private void parseAllLinks() throws IOException {
+    private TreeSet<String> parseAllLinks() throws IOException {
         Document doc = Jsoup.connect(inputURL).get();
         Elements href = doc.select("[href]");
         if (href == null) {
             throw new NullPointerException("No found links JSOUP [href]");
         }
-        links.addAll(href.eachAttr("abs:href"));
+        return new TreeSet<>(href.eachAttr("abs:href"));
     }
 
     private void saveImageFromHref(String saveFrom) throws IOException {
@@ -78,13 +76,13 @@ public class ImageDownloader {
         if (url == null) {
             return false;
         }
-        links.add(url.toLowerCase());
+//        links.add(url.toLowerCase());
         return true;
     }
 
-    public boolean downloadImageFromHref(String fileFormat) throws IOException {
+    public boolean downloadImageFromHref(final String fileFormat) throws IOException {
         boolean flagFound = false;
-        parseAllLinks();
+        final TreeSet<String> links = parseAllLinks();
         for (String url : links) {
             if (url.endsWith(fileFormat.toLowerCase())) {
                 saveImageFromHref(url);
