@@ -9,11 +9,12 @@ import java.util.Queue;
 public class FindFileExtension {
     private String path;
     private String fileExtension;
-    private Queue<String> pathsQueue = new LinkedList<>();
+    private Queue<String> pathsQueue;
 
     public FindFileExtension(String path, String extension) {
         this.path = path;
         this.fileExtension = extension.toLowerCase();
+        this.pathsQueue = new LinkedList<>();
     }
 
     private void extension(String ext) {

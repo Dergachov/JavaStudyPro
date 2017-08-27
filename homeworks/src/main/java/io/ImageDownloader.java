@@ -13,99 +13,63 @@ public class ImageDownloader {
     private String inputURL;
     private String outputPath;
     private TreeSet<String> links;
-    private File file;
-    private FileOutputStream fileOutputStream;
-    private DataInputStream dataInputStream;
-    private DataOutputStream dataOutputStream;
+    private final static int MAX_FILENAME_LENGTH = 100;
 
-    public ImageDownloader(String fromURL, String absolutePathToSave) {
+    public ImageDownloader(String fromURL, String absolutePathToSave) throws IOException {
         this.inputURL = fromURL;
         this.outputPath = absolutePathToSave;
         this.links = new TreeSet<>();
-        try {
-            isDirectories(this.outputPath);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        validPath(this.outputPath);
     }
 
-    private void isDirectories(String path) throws IOException {
-        file = new File(path);
+    private void validPath(String path) throws IOException {
+        File file = new File(path);
         if (!file.canWrite()) {
             if (!file.mkdirs()) {
                 throw new IOException("Can't create paths " + path);
             }
-            if (!file.canWrite()) {
-                throw new IOException("Can't access to this path " + path);
-            }
+            throw new IOException("Can't access to paths " + path);
         }
     }
 
-    private boolean deleteExistFiles(String filename) throws IOException {
-        file = new File(outputPath + filename);
-        if (file.isFile()) {
-            if (!file.delete()) {
-                throw new IOException("Can't delete old file " + outputPath + filename);
-            }
-            return true;
+    private void deleteOldExistFile(String filename) throws IOException {
+        File file = new File(outputPath + filename);
+        if (file.isFile() && !file.delete()) {
+            throw new IOException("Can't delete old file " + outputPath + filename);
         }
-        return false;
     }
 
-    private boolean getAllLinks() {
-        Document doc = null;
-        try {
-            doc = Jsoup.connect(inputURL).get();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void parseAllLinks() throws IOException {
+        Document doc = Jsoup.connect(inputURL).get();
         Elements href = doc.select("[href]");
         if (href == null) {
-            return false;
+            throw new NullPointerException("No found links JSOUP [href]");
         }
         links.addAll(href.eachAttr("abs:href"));
-        return true;
     }
 
-    private boolean downloadImage(String getLink) {
-        try {
-            String filename = getLink.substring(getLink.lastIndexOf("/") + 1, getLink.length());
-            int maximumLength = 100;
-            if (filename.length() > maximumLength) {
-                return false;
-            }
-            deleteExistFiles(filename);
-            URL url = new URL(getLink);
-            file = new File(outputPath + filename);
-            fileOutputStream = new FileOutputStream(file);
-            dataInputStream = new DataInputStream(url.openStream());
-            dataOutputStream = new DataOutputStream(fileOutputStream);
+    private void saveImageFromHref(String saveFrom) throws IOException {
+        String filename = saveFrom.substring(saveFrom.lastIndexOf("/") + 1, saveFrom.length());
+        deleteOldExistFile(filename);
+        URL url = new URL(saveFrom);
+        File file = new File(outputPath + filename);
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        DataInputStream dataInputStream = new DataInputStream(url.openStream());
+        DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream);
+        if (filename.length() <= MAX_FILENAME_LENGTH) {
             int counter;
             while ((counter = dataInputStream.read()) != -1) {
                 dataOutputStream.writeByte(counter);
             }
             dataOutputStream.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                dataOutputStream.close();
-                dataInputStream.close();
-                fileOutputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            dataOutputStream.close();
+            dataInputStream.close();
+            fileOutputStream.close();
         }
-        return false;
     }
 
-    public boolean getImages() {
-        Document doc = null;
-        try {
-            doc = Jsoup.connect(inputURL).get();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public boolean downloadImageFromImg() throws IOException {
+        Document doc = Jsoup.connect(inputURL).get();
         Element image = doc.select("img").first();
         if (image == null) {
             return false;
@@ -118,12 +82,12 @@ public class ImageDownloader {
         return true;
     }
 
-    public boolean getImagesFormLinks(String fileFormat) {
+    public boolean downloadImageFromHref(String fileFormat) throws IOException {
         boolean flagFound = false;
-        getAllLinks();
-        for (String urls : links) {
-            if (urls.endsWith(fileFormat.toLowerCase())) {
-                downloadImage(urls);
+        parseAllLinks();
+        for (String url : links) {
+            if (url.endsWith(fileFormat.toLowerCase())) {
+                saveImageFromHref(url);
                 flagFound = true;
             }
         }
